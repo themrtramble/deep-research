@@ -1,0 +1,4 @@
+interface:
+  display_name: "Grill With Change"
+  short_description: "Stress-test changes with faithful decisions"
+  default_prompt: "Use $grill-with-change to stress-test this OpenSpec change with a visible panorama and decision ledger, closing each phase before a coordinated batch write of only its confirmed decisions."

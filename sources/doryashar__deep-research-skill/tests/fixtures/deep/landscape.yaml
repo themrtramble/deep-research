@@ -1,0 +1,13 @@
+query: "State of the art in AI code review tools in 2026"
+expected_mode: deep
+expected_min_sources: 20
+expected_subagents: [4, 5]
+expected_sections:
+  - "Executive summary"
+  - "Landscape"
+  - "Tool profiles"
+  - "Tradeoffs"
+  - "Known Limitations"  # appears when critique loops couldn't close all gaps
+  - "Sources"
+requires_evidence_jsonl: true
+critique_iterations_max: 3

@@ -1,0 +1,95 @@
+# Changelog
+
+All notable changes to Academic Forge will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.0] - 2024-02-03
+
+### Added
+- 🎉 Initial release of Academic Forge
+- Integrated 3 carefully selected skills for academic writing:
+  - scientific-agent-skills (K-Dense-AI)
+  - AI-research-SKILLs (orchestra-research)
+  - humanizer (community)
+- Created installation scripts for bash and PowerShell
+- Added automatic update scripts
+- Comprehensive documentation:
+  - README.md with forge concept explanation
+  - ATTRIBUTIONS.md for proper skill credit
+  - CONTRIBUTING.md for community guidelines
+  - forge.yaml for metadata and configuration
+- GitHub Actions workflow for automatic update checking
+- MIT license for forge structure
+- Git submodule setup for skill management
+
+### Philosophy
+- Named "Forge" after Minecraft's mod loader concept
+- Focus on solving the "too many skills" accuracy problem
+- Curated collection approach over kitchen-sink installation
+- Respect for original authors through proper attribution
+- Automatic updates while maintaining version control
+
+## [Unreleased]
+
+### Added
+- Added `claude-science` as a locally maintained collection of Anthropic's 32 Claude Science skills — filed under "Workflow & Process" as *Claude Science* (author Anthropic), with each sub-skill re-classified into research / writing / figures / workflow. Installs by sparse-checkout of this repo with **no Claude Science subscription**, works across agents, and supports Windows.
+- Added local-collection support to `scripts/build-skill-index.mjs` (a `local` collection flag plus an `--only <id>` filter to rebuild a single collection without cloning the remote ones), a `CS` source label in compact skill cards, and a generalized registry check that every locally hosted pack exists on disk
+- Added `nature-skills` as a registry-backed collection with 9 categorized sub-skills for Nature-style writing, polishing, citation, figures, data availability, reading, reviewer response, slides, and literature search
+- Added NS source labels in compact skill cards and expanded site tests to cover all `site/src/lib/*.test.mjs`
+- Added Chinese summary translations for generated collection sub-skills and validation that blocks untranslated `summary.zh` fields
+- Added `humanizer-zh` as a git submodule under `skills/humanizer-zh`, matching the integration strategy used for `humanizer`
+
+### Changed
+- Refreshed registry star counts from GitHub and updated the redirected `andrej-karpathy-skills` repository URL to its canonical `multica-ai` owner
+- Updated generated collection indexes for Scientific Agent Skills, AI Research SKILLs, and Nature Skills from their latest upstream default branches
+- Removed `install.ref` pins from registry entries so installs follow the latest upstream repository version
+- Renamed the K-Dense scientific skills integration from `claude-scientific-skills` to `scientific-agent-skills`, including the submodule path, upstream URL, forge metadata, blacklist paths, verification scripts, and user-facing documentation
+
+### Removed
+- Removed `planning-with-files` from the curated skill set, install/update pipeline, verification scripts, and user-facing documentation
+- Removed the previously added alternate academic registry collection and its generated sub-skill entries
+
+### Fixed
+- Fixed catalog search so a query now spans the whole catalog (global search) instead of only matching within the active category tab; cross-category matches reveal their category panels with headings
+- Fixed the PowerShell installer so registry entries without optional `install.ref` still install under `Set-StrictMode`
+- **脚本路径修复**: 所有脚本（install/update/download）现在支持从任意目录运行，自动定位仓库根目录
+- **CI 工作流补全**: 自动更新 PR 现在也会应用技能黑名单、清理 K-Dense 广告，并执行统一的同步后清理流程
+- **死代码清理**: 移除 update.sh / install.sh 中永远为真的 `$?` 检查
+
+### Added
+- **共享函数库**: 新增 `scripts/lib.sh` 和 `scripts/lib.ps1`，消除 7 个文件间的重复代码
+- **多工具安装支持**: install 脚本新增 `--tool claude` / `--tool opencode` 参数，默认自动检测目标工具目录
+- **forge.yaml 功能化**: `config.enabled` 中设为 `false` 的技能在同步后会被自动移除
+- **CLAUDE.md**: 新增项目结构说明文件（已加入 .gitignore）
+
+## [1.1.0] - 2025-06-01
+
+### Added
+- Added `planning-with-files` as a skills-only synced source under `skills/planning-with-files`, synced from upstream `.opencode/skills/planning-with-files` (no submodule)
+- Updated install/download/update scripts (bash + PowerShell) to sync `planning-with-files` alongside `superpowers`
+- Updated automation workflow and documentation to reflect the new skills-only source
+- Added local `scientific-visualization` skill documentation (no upstream dependency)
+- Updated README/QUICKSTART/ATTRIBUTIONS/forge metadata to include visualization workflow capabilities
+
+### Planned
+- Example workflows and use cases
+- Video tutorial for installation
+- Additional skills pending community feedback
+- Integration tests for skill compatibility
+- Documentation in multiple languages
+
+---
+
+## Version History
+
+### How Versions Work
+
+- **Major (X.0.0)**: Breaking changes, major restructuring
+- **Minor (1.X.0)**: New skills added, significant improvements
+- **Patch (1.0.X)**: Bug fixes, documentation updates, skill updates
+
+### Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to suggest changes that would appear in future versions.

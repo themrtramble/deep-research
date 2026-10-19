@@ -1,0 +1,69 @@
+name: validate
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (for ajv-cli via npx)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check cross-references
+        run: bash tests/check-cross-references.sh
+
+      - name: Check provenance (SHA-256 of deep-research-report.md)
+        run: bash tests/check-provenance.sh
+
+      - name: Check the pre-commit provenance hook keeps the chain fresh
+        run: bash tests/check-precommit-hook.sh
+
+      - name: Check SKILL.md stays within its 150-line prompt budget
+        run: bash tests/check-skill-length.sh
+
+      - name: Check the SKILL.md load tier in tokens (the unit the model pays)
+        run: bash tests/check-skill-token-budget.sh
+
+      - name: Check run accounting holds the rule and refuses cost claims
+        run: bash tests/check-run-accounting.sh
+
+      - name: Check JSON artifact schemas
+        run: bash tests/check-schema.sh tests/fixtures/research-sources.json tests/fixtures/research-evidence.json tests/fixtures/osint/socmint-source.json tests/fixtures/solution-space/valid.json examples/eu-ai-act-2026/research-solution-space.json
+
+      - name: Check example cross-file invariants (cascade, routing, counts)
+        run: bash tests/check-example-invariants.sh
+
+      - name: Check newsletter-signal helper + corpus schema
+        run: bash tests/check-newsletter-search.sh
+
+      - name: Lint runtime scripts
+        run: python3 -m py_compile scripts/*.py suggest-tooling/scripts/*.py
+
+      - name: marketplace_rank unit + regression checks (suggest-tooling)
+        run: bash tests/check-marketplace-rank.sh
+
+      - name: Run deterministic gates on the example (harness layer 1)
+        run: python3 scripts/verify_gates.py check-artifacts --sources examples/eu-ai-act-2026/research-sources.json --evidence examples/eu-ai-act-2026/research-evidence.json --length short
+
+      - name: Run the solution-space gate on the example manifest (harness layer 1)
+        run: python3 scripts/verify_gates.py check-solution-space --manifest examples/eu-ai-act-2026/research-solution-space.json
+
+      - name: OSINT/SOCMINT gates
+        run: bash tests/check-osint-gates.sh
+
+      - name: Solution-space gates
+        run: bash tests/check-solution-space.sh
+
+      - name: Run LLM judge layers (harness layers 2+, maintainer secret only — skips gracefully)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: bash scripts/eval_harness/run_ci_judges.sh

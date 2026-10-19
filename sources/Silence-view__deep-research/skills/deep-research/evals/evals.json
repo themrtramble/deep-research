@@ -1,0 +1,23 @@
+{
+  "skill_name": "deep-research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Fammi una deep research sulle best practice per building multi-agent AI systems nel 2025-2026. Voglio sapere quali architetture funzionano meglio, quali framework usare, e quali sono i pattern di coordinazione più efficaci. Cerca almeno 100 fonti e verifica tutto.",
+      "expected_output": "A comprehensive report covering multi-agent architectures (orchestrator, swarm, debate, MapReduce), comparing frameworks (AutoGen, CrewAI, LangGraph, Claude Agent SDK), with credibility-scored sources, citation chasing, and evidence triangulation. Should include contrarian perspectives and practical implementation advice.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Research the current state of AI-powered code review tools. I need to understand what tools exist, how they compare in terms of accuracy and false positive rates, what research papers support their effectiveness, and what the best practices are for integrating them into CI/CD pipelines. Be thorough - I'm making a purchasing decision for my engineering team of 50 developers.",
+      "expected_output": "A deep research report with comparative analysis of AI code review tools, benchmarks and accuracy data, academic papers on effectiveness, integration best practices, and a clear recommendation supported by evidence from multiple tiers of sources.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "quick overview of WebAssembly adoption trends in 2025",
+      "expected_output": "A Quick mode report (20-30 sources) covering WASM adoption trends, key use cases, browser support, and industry adoption with recent sources. Should be concise but well-sourced.",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: Deep Research
+  short_description: Evidence-backed multi-source research and reporting
+  default_prompt: Use $deep-research to investigate a complex question with source verification, contradiction tracking, and a persistent evidence record.

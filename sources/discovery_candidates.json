@@ -1,0 +1,1990 @@
+[
+  {
+    "full_name": "bytedance/deer-flow",
+    "html_url": "https://github.com/bytedance/deer-flow",
+    "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of ta",
+    "stars": 84141,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-19T15:27:04Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-agent research"
+    ]
+  },
+  {
+    "full_name": "mvanhorn/last30days-skill",
+    "html_url": "https://github.com/mvanhorn/last30days-skill",
+    "description": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
+    "stars": 64737,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-18T20:12:47Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-research claude skill"
+    ]
+  },
+  {
+    "full_name": "Imbad0202/academic-research-skills",
+    "html_url": "https://github.com/Imbad0202/academic-research-skills",
+    "description": "Academic Research Skills for Claude Code: research \u2192 write \u2192 review \u2192 revise \u2192 finalize",
+    "stars": 52943,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-10-18T01:25:37Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "academic research skill"
+    ]
+  },
+  {
+    "full_name": "khoj-ai/khoj",
+    "html_url": "https://github.com/khoj-ai/khoj",
+    "description": "Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI ",
+    "stars": 37745,
+    "language": "Python",
+    "license": "AGPL-3.0",
+    "pushed_at": "2026-08-02T01:55:40Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research agent",
+      "autonomous research agent"
+    ]
+  },
+  {
+    "full_name": "assafelovic/gpt-researcher",
+    "html_url": "https://github.com/assafelovic/gpt-researcher",
+    "description": "An autonomous agent that conducts deep research on any data using any LLM providers",
+    "stars": 30173,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-10-10T22:03:53Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research agent",
+      "autonomous research agent"
+    ]
+  },
+  {
+    "full_name": "virattt/dexter",
+    "html_url": "https://github.com/virattt/dexter",
+    "description": "An autonomous agent for deep financial research",
+    "stars": 27691,
+    "language": "TypeScript",
+    "license": null,
+    "pushed_at": "2026-09-23T19:56:36Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research agent",
+      "autonomous research agent"
+    ]
+  },
+  {
+    "full_name": "Alibaba-NLP/DeepResearch",
+    "html_url": "https://github.com/Alibaba-NLP/DeepResearch",
+    "description": "Tongyi Deep Research, the Leading Open-source Deep Research Agent",
+    "stars": 20060,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-02-27T13:12:11Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research agent"
+    ]
+  },
+  {
+    "full_name": "dzhng/deep-research",
+    "html_url": "https://github.com/dzhng/deep-research",
+    "description": "An AI-powered research assistant that performs iterative, deep research on any topic by combining search engines, web scraping, and large language models.  The goal of this repo is to provide the simp",
+    "stars": 19794,
+    "language": "TypeScript",
+    "license": "MIT",
+    "pushed_at": "2026-04-11T23:58:25Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research agent"
+    ]
+  },
+  {
+    "full_name": "arc53/DocsGPT",
+    "html_url": "https://github.com/arc53/DocsGPT",
+    "description": "Private AI platform for agents, assistants and enterprise search. Built-in Agent Builder, Deep research, Document analysis, Multi-model support, and API connectivity for agents.",
+    "stars": 18323,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-19T12:16:59Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research agent",
+      "deep-analysis"
+    ]
+  },
+  {
+    "full_name": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "html_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+    "description": "ARIS \u2694\ufe0f (Auto-Research-In-Sleep) \u2014 Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in \u2014 works wi",
+    "stars": 17722,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-19T06:20:47Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "autonomous research agent"
+    ]
+  },
+  {
+    "full_name": "xbtlin/ai-berkshire",
+    "html_url": "https://github.com/xbtlin/ai-berkshire",
+    "description": "AI \u65f6\u4ee3\u7684\u4f2f\u514b\u5e0c\u5c14\uff1a\u57fa\u4e8e Claude Code / Codex \u7684\u4ef7\u503c\u6295\u8d44\u7814\u7a76\u6846\u67b6\u3002\u5df4\u83f2\u7279\u00b7\u8292\u683c\u00b7\u6bb5\u6c38\u5e73\u00b7\u674e\u5f55\u56db\u5927\u5e08\u65b9\u6cd5\u8bba + \u591aAgent\u5e76\u884c\u7814\u7a76\u3002| AI-era Berkshire: a value investing research framework built for Claude Code / Codex. 4 masters' methodologies + multi-ag",
+    "stars": 16803,
+    "language": "HTML",
+    "license": "MIT",
+    "pushed_at": "2026-10-19T11:32:56Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-agent research"
+    ]
+  },
+  {
+    "full_name": "tangyudi/Ai-Learn",
+    "html_url": "https://github.com/tangyudi/Ai-Learn",
+    "description": "\u4eba\u5de5\u667a\u80fd\u5b66\u4e60\u8def\u7ebf\u56fe\uff0c\u6574\u7406\u8fd1200\u4e2a\u5b9e\u6218\u6848\u4f8b\u4e0e\u9879\u76ee\uff0c\u514d\u8d39\u63d0\u4f9b\u914d\u5957\u6559\u6750\uff0c\u96f6\u57fa\u7840\u5165\u95e8\uff0c\u5c31\u4e1a\u5b9e\u6218\uff01\u5305\u62ec\uff1aPython\uff0c\u6570\u5b66\uff0c\u673a\u5668\u5b66\u4e60\uff0c\u6570\u636e\u5206\u6790\uff0c\u6df1\u5ea6\u5b66\u4e60\uff0c\u8ba1\u7b97\u673a\u89c6\u89c9\uff0c\u81ea\u7136\u8bed\u8a00\u5904\u7406\uff0cPyTorch tensorflow machine-learning,deep-learning data-analysis data-mining mathematics data-science artificial-in",
+    "stars": 13432,
+    "language": null,
+    "license": null,
+    "pushed_at": "2024-06-02T04:46:40Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-analysis"
+    ]
+  },
+  {
+    "full_name": "Imbad0202/academic-research-skills-codex",
+    "html_url": "https://github.com/Imbad0202/academic-research-skills-codex",
+    "description": "Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows",
+    "stars": 13166,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-10-16T09:22:48Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "academic research skill"
+    ]
+  },
+  {
+    "full_name": "thuml/Time-Series-Library",
+    "html_url": "https://github.com/thuml/Time-Series-Library",
+    "description": "A Library for Advanced Deep Time Series Models for General Time Series Analysis.",
+    "stars": 12970,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-04-18T21:01:40Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-analysis"
+    ]
+  },
+  {
+    "full_name": "0x4m4/hexstrike-ai",
+    "html_url": "https://github.com/0x4m4/hexstrike-ai",
+    "description": "HexStrike AI MCP Agents is an advanced MCP server that lets AI agents (Claude, GPT, Copilot, etc.) autonomously run 150+ cybersecurity tools for automated pentesting, vulnerability discovery, bug boun",
+    "stars": 12944,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-08-03T14:33:09Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "autonomous research agent"
+    ]
+  },
+  {
+    "full_name": "MervinPraison/PraisonAI",
+    "html_url": "https://github.com/MervinPraison/PraisonAI",
+    "description": "PraisonAI \ud83e\udd9e \u2014 Hire a 24/7 AI Workforce. Stop writing boilerplate and start shipping autonomous self-improving agents that research, plan, code, and execute tasks. Deployed in 5 lines of code with buil",
+    "stars": 9270,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-19T11:54:51Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-agent research",
+      "autonomous research agent"
+    ]
+  },
+  {
+    "full_name": "MiroMindAI/MiroThinker",
+    "html_url": "https://github.com/MiroMindAI/MiroThinker",
+    "description": "MiroThinker is a deep research agent optimized for complex research and prediction tasks. Our latest models, MiroThinker-1.7, achieves 74.0 and 75.3 on the BrowseComp and BrowseComp Zh, respectively.",
+    "stars": 8421,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-07-06T14:50:39Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research agent"
+    ]
+  },
+  {
+    "full_name": "zilliztech/deep-searcher",
+    "html_url": "https://github.com/zilliztech/deep-searcher",
+    "description": "Open Source Deep Research Alternative to Reason and Search on Private Data. Written in Python.",
+    "stars": 8349,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-09-22T10:08:42Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research agent"
+    ]
+  },
+  {
+    "full_name": "KunAgent/Kun",
+    "html_url": "https://github.com/KunAgent/Kun",
+    "description": "Local-first AI agent workspace for coding, writing, design, research, and automation \u2014 one runtime for desktop GUI and TUI.",
+    "stars": 6318,
+    "language": "TypeScript",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-10-19T15:19:26Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-agent research"
+    ]
+  },
+  {
+    "full_name": "dformoso/machine-learning-mindmap",
+    "html_url": "https://github.com/dformoso/machine-learning-mindmap",
+    "description": "A mindmap summarising Machine Learning concepts, from Data Analysis to Deep Learning.",
+    "stars": 6266,
+    "language": null,
+    "license": "Apache-2.0",
+    "pushed_at": "2020-05-30T07:34:20Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-analysis"
+    ]
+  },
+  {
+    "full_name": "SamuelSchmidgall/AgentLaboratory",
+    "html_url": "https://github.com/SamuelSchmidgall/AgentLaboratory",
+    "description": "Agent Laboratory is an end-to-end autonomous research workflow meant to assist you as the human researcher toward implementing your research ideas",
+    "stars": 5904,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2025-08-20T21:46:43Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "autonomous research agent"
+    ]
+  },
+  {
+    "full_name": "Layout-Parser/layout-parser",
+    "html_url": "https://github.com/Layout-Parser/layout-parser",
+    "description": "A Unified Toolkit for Deep Learning Based Document Image Analysis",
+    "stars": 5775,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2024-08-15T06:26:34Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-analysis"
+    ]
+  },
+  {
+    "full_name": "zLanqing/codex-claude-academic-skills",
+    "html_url": "https://github.com/zLanqing/codex-claude-academic-skills",
+    "description": "\u672c\u4ed3\u5e93\u5305\u542b\u4e09\u4e2a\u9762\u5411\u5b66\u672f\u79d1\u7814\u4eba\u5458\u7684Skills\uff0c\u8986\u76d6\u4ece\u6587\u732e\u9605\u8bfb\u3001\u8bba\u6587\u5199\u4f5c\u5230\u79d1\u5b66\u8ba1\u7b97\u7684\u5b8c\u6574\u7814\u7a76\u5de5\u4f5c\u6d41\u3002office-academic-skill \u8d1f\u8d23\u8bba\u6587\u9605\u8bfb\u62a5\u544a\u4e0e\u5b66\u672f PPT/Word \u6587\u6863\u751f\u6210\uff1bresearch-writing-skill \u63d0\u4f9b\u8bba\u6587\u5199\u4f5c\u3001\u6da6\u8272\u4e0e\u5ba1\u7a3f\u56de\u590d\u8f85\u52a9\uff1bscientific-toolkit-skill \u6574\u5408 MATLAB/Python \u79d1\u5b66\u8ba1\u7b97\u4e0e\u671f\u520a\u7ea7\u56fe\u8868\u751f\u6210\u3002\u4e09\u4e2a Skill",
+    "stars": 5081,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-05-14T09:08:48Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "academic research skill"
+    ]
+  },
+  {
+    "full_name": "Leonxlnx/unlazy",
+    "html_url": "https://github.com/Leonxlnx/unlazy",
+    "description": "Anti-laziness skill for AI agents. Core: the Depth Tree method, which splits a task N layers deep and gives every leaf the full time budget of the whole task, so effort multiplies with depth. Grounded",
+    "stars": 4000,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-09-03T09:31:17Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research skill"
+    ]
+  },
+  {
+    "full_name": "jmiao24/Paper2Agent",
+    "html_url": "https://github.com/jmiao24/Paper2Agent",
+    "description": "Paper2Agent is a multi-agent AI system that automatically transforms research papers into interactive AI agents.",
+    "stars": 3839,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-09-17T16:56:07Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-agent research"
+    ]
+  },
+  {
+    "full_name": "google/deepvariant",
+    "html_url": "https://github.com/google/deepvariant",
+    "description": "DeepVariant is an analysis pipeline that uses a deep neural network to call genetic variants from next-generation DNA sequencing data.",
+    "stars": 3825,
+    "language": "Python",
+    "license": "BSD-3-Clause",
+    "pushed_at": "2026-09-30T18:49:48Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-analysis"
+    ]
+  },
+  {
+    "full_name": "simonlin1212/TradingAgents-astock",
+    "html_url": "https://github.com/simonlin1212/TradingAgents-astock",
+    "description": "A\u80a1\u591aAgent\u6295\u7814\u6846\u67b6 \u2014 \u9002\u914dA\u80a1\u6570\u636e\u6e90(\u9f99\u864e\u699c/\u6e38\u8d44/\u89e3\u7981\u7b49)\uff0c7\u4f4d\u5206\u6790\u5e08\u57fa\u4e8eA\u80a1\u89c4\u5219\u7684\u8fa9\u8bba\u51b3\u7b56\uff0c\u57fa\u4e8eTradingAgents\u6df1\u5ea6\u6539\u9020\uff0c\u9002\u914d\u5927A\u3002A-share multi-agent investment research framework \u2014 7 AI analysts, bull/bear debate, risk assessment\u3002",
+    "stars": 3731,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-10-11T13:40:32Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-agent research"
+    ]
+  },
+  {
+    "full_name": "SkyworkAI/DeepResearchAgent",
+    "html_url": "https://github.com/SkyworkAI/DeepResearchAgent",
+    "description": "DeepResearchAgent is a hierarchical multi-agent system designed not only for deep research tasks but also for general-purpose task solving. The framework leverages a top-level planning agent to coordi",
+    "stars": 3566,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-05-04T09:15:39Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-agent research"
+    ]
+  },
+  {
+    "full_name": "chaseai-yt/claudex-loop",
+    "html_url": "https://github.com/chaseai-yt/claudex-loop",
+    "description": "Claude Code skill: four-phase plan hardening (recon, interrogate, Codex adversarial review, cross-model build & inspection) \u2014 two AI models harden your plan before a line of code exists, then swap job",
+    "stars": 3123,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-10-14T17:20:17Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "adversarial review skill"
+    ]
+  },
+  {
+    "full_name": "SharpAI/DeepCamera",
+    "html_url": "https://github.com/SharpAI/DeepCamera",
+    "description": "Open-Source AI Camera Skills Platform, AI NVR & CCTV Surveillance. Local VLM video analysis with Qwen, DeepSeek, SmolVLM, LLaVA, YOLO26. LLM-powered agentic security camera agent \u2014 watches, understand",
+    "stars": 3102,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-09-17T00:43:07Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep analysis skill"
+    ]
+  },
+  {
+    "full_name": "OpenNSWM-Lab/FAROS",
+    "html_url": "https://github.com/OpenNSWM-Lab/FAROS",
+    "description": "A blueprint-driven AutoResearch runtime for orchestrating AI research workflows from idea generation and experiments to paper writing and peer review.",
+    "stars": 3043,
+    "language": "Python",
+    "license": null,
+    "pushed_at": "2026-10-14T13:40:34Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-agent research"
+    ]
+  },
+  {
+    "full_name": "Zafer-Liu/Data-Analysis-Agent",
+    "html_url": "https://github.com/Zafer-Liu/Data-Analysis-Agent",
+    "description": "\ud83d\ude80\u4f60\u7684\u79c1\u4eba\u6570\u636e\u5206\u6790\u52a9\u624b\u3002\u901a\u8fc7\u5bf9\u8bdd\u5f0f\u4ea4\u4e92\uff0c\u81ea\u52a8\u751f\u6210\u53ef\u89c6\u5316\u62a5\u8868\u4e0e\u5546\u4e1a\u6d1e\u5bdf\uff0c\u8ba9\u6570\u636e\u51b3\u7b56\u53d8\u5f97\u50cf\u804a\u5929\u4e00\u6837\u7b80\u5355\u3002  \ud83d\ude80 Your personal data analysis assistant. Say goodbye to complex SQL and Excel formulas.  An LLM-powered data analysis agent. Chat with your data to ",
+    "stars": 2620,
+    "language": "JavaScript",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-10-09T07:29:58Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "decision analysis agent"
+    ]
+  },
+  {
+    "full_name": "HughYau/AcademicForge",
+    "html_url": "https://github.com/HughYau/AcademicForge",
+    "description": "One Forge, All Skills: A curated skill collection for academic writing and research.  \u70b9\u5f00\u5373\u7528\uff0c\u6309\u9700\u914d\u7f6e\u7684\u4e00\u7ad9\u5f0f\u5b66\u672f\u7814\u7a76skills\u5e73\u53f0\u3002",
+    "stars": 2602,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-08-30T14:39:09Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "academic research skill"
+    ]
+  },
+  {
+    "full_name": "webfuse-com/awesome-autoresearch",
+    "html_url": "https://github.com/webfuse-com/awesome-autoresearch",
+    "description": "A curated list of autonomous improvement loops, research agents, and autoresearch-style systems inspired by Karpathy's autoresearch.",
+    "stars": 2571,
+    "language": null,
+    "license": "NOASSERTION",
+    "pushed_at": "2026-09-21T07:52:13Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "autonomous research agent"
+    ]
+  },
+  {
+    "full_name": "curiousily/Getting-Things-Done-with-Pytorch",
+    "html_url": "https://github.com/curiousily/Getting-Things-Done-with-Pytorch",
+    "description": "Jupyter Notebook tutorials on solving real-world problems with Machine Learning & Deep Learning using PyTorch. Topics: Face detection with Detectron 2, Time Series anomaly detection with LSTM Autoenco",
+    "stars": 2510,
+    "language": "Jupyter Notebook",
+    "license": "Apache-2.0",
+    "pushed_at": "2024-06-30T16:28:31Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-analysis"
+    ]
+  },
+  {
+    "full_name": "Weizhena/Deep-Research-skills",
+    "html_url": "https://github.com/Weizhena/Deep-Research-skills",
+    "description": "Structured deep research skill for Claude Code/Open Code/Codex with human-in-the-loop control",
+    "stars": 2382,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-08-23T03:25:28Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research skill",
+      "deep-research claude skill"
+    ]
+  },
+  {
+    "full_name": "D-X-Y/Awesome-AutoDL",
+    "html_url": "https://github.com/D-X-Y/Awesome-AutoDL",
+    "description": "Automated Deep Learning: Neural Architecture Search Is Not the End (a curated list of AutoDL resources and an in-depth analysis)",
+    "stars": 2345,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2022-09-26T01:35:49Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-analysis"
+    ]
+  },
+  {
+    "full_name": "AIScientists-Dev/academic-humanizer",
+    "html_url": "https://github.com/AIScientists-Dev/academic-humanizer",
+    "description": "Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.",
+    "stars": 2282,
+    "language": null,
+    "license": "NOASSERTION",
+    "pushed_at": "2026-07-03T07:58:33Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "academic research skill"
+    ]
+  },
+  {
+    "full_name": "aipoch/medical-research-skills",
+    "html_url": "https://github.com/aipoch/medical-research-skills",
+    "description": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing.",
+    "stars": 1970,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-09-17T05:39:52Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "academic research skill"
+    ]
+  },
+  {
+    "full_name": "delibae/claude-prism",
+    "html_url": "https://github.com/delibae/claude-prism",
+    "description": "An offline-first scientific writing workspace powered by Claude. LaTeX + Python + 100+ scientific skills all running locally.",
+    "stars": 1821,
+    "language": "TypeScript",
+    "license": "MIT",
+    "pushed_at": "2026-08-28T10:23:19Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "academic research skill"
+    ]
+  },
+  {
+    "full_name": "tjboudreaux/cc-thinking-skills",
+    "html_url": "https://github.com/tjboudreaux/cc-thinking-skills",
+    "description": "28 eval-informed mental models and critical-thinking skills for Claude Code, GitHub Copilot, Codex, Cursor, and other Agent Skills-compatible tools",
+    "stars": 1652,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-08-07T18:53:22Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "critical thinking skill claude"
+    ]
+  },
+  {
+    "full_name": "zsyggg/paper-craft-skills",
+    "html_url": "https://github.com/zsyggg/paper-craft-skills",
+    "description": "Claude Code skills for academic papers: deep analysis, comics, summaries | \u8bba\u6587\u5de5\u827a\uff1a\u6df1\u5ea6\u89e3\u8bfb\u3001\u6f2b\u753b\u751f\u6210\u3001\u901f\u89c8\u603b\u7ed3",
+    "stars": 1373,
+    "language": "Python",
+    "license": null,
+    "pushed_at": "2026-05-29T05:42:08Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research skill",
+      "academic research skill",
+      "deep analysis skill"
+    ]
+  },
+  {
+    "full_name": "mikehasa/golive-skill",
+    "html_url": "https://github.com/mikehasa/golive-skill",
+    "description": "Take your agent-built product live: hosting, database, domain, email, payments \u2014 on your own accounts. Open-source Agent Skill + zero-dependency Node CLI: detect \u2192 plan \u2192 approve \u2192 apply \u2192 verify. No ",
+    "stars": 1302,
+    "language": "TypeScript",
+    "license": "MIT",
+    "pushed_at": "2026-10-11T21:04:01Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "source verification skill"
+    ]
+  },
+  {
+    "full_name": "rohunvora/x-research-skill",
+    "html_url": "https://github.com/rohunvora/x-research-skill",
+    "description": "X/Twitter research skill for Claude Code and OpenClaw. Agentic search, thread following, deep-dives, sourced briefings.",
+    "stars": 1243,
+    "language": "TypeScript",
+    "license": null,
+    "pushed_at": "2026-02-19T08:42:51Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research skill"
+    ]
+  },
+  {
+    "full_name": "917Dhj/DeepPaperNote",
+    "html_url": "https://github.com/917Dhj/DeepPaperNote",
+    "description": "DeepPaperNote is an agent skill for deep-reading a single paper and generating high-quality Obsidian-style research notes. Works with Claude Code, Codex, Cursor, Copilot, Gemini CLI, and more.",
+    "stars": 1222,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-19T07:52:48Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research skill"
+    ]
+  },
+  {
+    "full_name": "vstorm-co/pydantic-deepagents",
+    "html_url": "https://github.com/vstorm-co/pydantic-deepagents",
+    "description": "Open-source, self-hosted Claude Code - a terminal AI assistant and the Python framework behind it. Tool-calling, sandboxed execution, multi-agent teams, skills, checkpoints, unlimited context - on Pyd",
+    "stars": 1103,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-19T13:27:10Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-research claude skill"
+    ]
+  },
+  {
+    "full_name": "bitjaru/styleseed",
+    "html_url": "https://github.com/bitjaru/styleseed",
+    "description": "Open-source design-method engine for Claude Code, Codex & Cursor. 23 agent skills for fixed design judgment, multiple grammars, semantic palettes, reference compilation, and evidence-verified UI. MIT.",
+    "stars": 979,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-10-14T05:36:41Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "source verification skill"
+    ]
+  },
+  {
+    "full_name": "taracodlabs/aiden",
+    "html_url": "https://github.com/taracodlabs/aiden",
+    "description": "Aiden \u2014 an autonomous AI agent and work engine built solo. It can operate your browser, terminal, files, apps, APIs, skills and tools, remember context, recover from failures, automate workflows, and ",
+    "stars": 859,
+    "language": "TypeScript",
+    "license": "AGPL-3.0",
+    "pushed_at": "2026-09-13T15:13:35Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "source verification skill"
+    ]
+  },
+  {
+    "full_name": "sangrokjung/claude-forge",
+    "html_url": "https://github.com/sangrokjung/claude-forge",
+    "description": "oh-my-zsh for Claude Code \u2014 16 agents, 35 commands, 32 skills, 21 safety hooks in one install. v4.0 adds an adversarial review loop: a second agent that never sees the first one's reasoning. MIT.",
+    "stars": 858,
+    "language": "Shell",
+    "license": "MIT",
+    "pushed_at": "2026-09-03T11:14:41Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "reasoning skill claude",
+      "adversarial review skill"
+    ]
+  },
+  {
+    "full_name": "JeffLi1993/seo-audit-skill",
+    "html_url": "https://github.com/JeffLi1993/seo-audit-skill",
+    "description": "SEO agent skill for OpenClaw,Claude Code, and AI agents. Generate beginner SEO audits and advanced technical SEO reports for any page.",
+    "stars": 766,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-06-17T15:54:51Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "technical audit skill"
+    ]
+  },
+  {
+    "full_name": "zhinkgit/embeddedskills",
+    "html_url": "https://github.com/zhinkgit/embeddedskills",
+    "description": "An open-source collection of embedded development and debugging skills for Claude Code, Copilot, TRAE, and other AI coding assistants that support the Skill protocol. Once installed, the AI assistant ",
+    "stars": 755,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-09-03T05:51:15Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "source verification skill"
+    ]
+  },
+  {
+    "full_name": "staruhub/ClaudeSkills",
+    "html_url": "https://github.com/staruhub/ClaudeSkills",
+    "description": "13 curated Agent Skills for research, product decisions, decks, publishing, audits, and more \u2014 portable across skills-compatible agents.",
+    "stars": 728,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-08-13T09:26:52Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-research claude skill"
+    ]
+  },
+  {
+    "full_name": "hoolulu/deep-research",
+    "html_url": "https://github.com/hoolulu/deep-research",
+    "description": "Professional deep research report generation Skill \u2014 one command, ten minutes, broker-grade deep research / \u6df1\u5ea6\u8c03\u7814\u62a5\u544a\u751f\u6210 Skill \u2014 \u4e00\u6761\u547d\u4ee4\uff0c\u5341\u5206\u949f\u51fa\u5238\u5546\u7ea7\u6df1\u5ea6\u8c03\u7814\u62a5\u544a",
+    "stars": 603,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-08-30T06:57:57Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research skill"
+    ]
+  },
+  {
+    "full_name": "AQ-MedAI/MedResearcher-R1",
+    "html_url": "https://github.com/AQ-MedAI/MedResearcher-R1",
+    "description": "MedResearcher-R1 is a deep research agent for medical scenarios, built on a knowledge-informed trajectory synthesis framework.",
+    "stars": 525,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2025-09-01T02:58:52Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "research synthesis agent"
+    ]
+  },
+  {
+    "full_name": "slowmist/slowmist-agent-security",
+    "html_url": "https://github.com/slowmist/slowmist-agent-security",
+    "description": "SlowMist Agent Security Skill: A comprehensive security review framework for AI agents operating in adversarial environments. Core principle: Every external input is untrusted until verified.",
+    "stars": 510,
+    "language": null,
+    "license": "MIT",
+    "pushed_at": "2026-04-17T02:12:58Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "adversarial review skill"
+    ]
+  },
+  {
+    "full_name": "yzddmr6/repo-analyzer",
+    "html_url": "https://github.com/yzddmr6/repo-analyzer",
+    "description": "AI coding agent skill for deep architectural analysis of open-source projects | \u5f00\u6e90\u9879\u76ee\u6df1\u5ea6\u67b6\u6784\u5206\u6790\uff0c\u4e00\u53e5\u8bdd\u751f\u6210\u4e13\u4e1a\u7ea7\u5206\u6790\u62a5\u544a",
+    "stars": 496,
+    "language": null,
+    "license": "MIT",
+    "pushed_at": "2026-04-27T03:22:27Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep analysis skill"
+    ]
+  },
+  {
+    "full_name": "jason8745/llm-agent-trader",
+    "html_url": "https://github.com/jason8745/llm-agent-trader",
+    "description": "AI-powered stock trading backtesting system with LLM-based decision analysis, FastAPI backend, and Next.js frontend.",
+    "stars": 493,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2025-12-04T15:51:32Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "decision analysis agent"
+    ]
+  },
+  {
+    "full_name": "rollingSirius/equity-research-skill",
+    "html_url": "https://github.com/rollingSirius/equity-research-skill",
+    "description": "Possibly the deepest AI equity-research skill: nine-chapter single-stock deep dives and earnings deep-dives, with scripted DCF/EPV/EVA and reproducible valuation. Covers US, HK and A-shares. Docs in E",
+    "stars": 462,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-08-21T20:13:56Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep research skill"
+    ]
+  },
+  {
+    "full_name": "sanjay3290/ai-skills",
+    "html_url": "https://github.com/sanjay3290/ai-skills",
+    "description": "24 cross-platform agent skills for Claude Code, Cursor, Codex & Gemini CLI \u2014 databases, messaging, research, TTS, DevOps, and Google Workspace",
+    "stars": 440,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-09-10T20:49:59Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-research claude skill"
+    ]
+  },
+  {
+    "full_name": "Arvo-AI/aurora",
+    "html_url": "https://github.com/Arvo-AI/aurora",
+    "description": "Aurora \u2014 Open source AI-powered agentic incident management & root cause analysis for SREs. LangGraph agents investigate across AWS, Azure, GCP, Kubernetes. Integrates with PagerDuty, Datadog, Grafana",
+    "stars": 436,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-10-19T15:01:01Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "root cause analysis agent"
+    ]
+  },
+  {
+    "full_name": "UditAkhourii/neuroarxiv",
+    "html_url": "https://github.com/UditAkhourii/neuroarxiv",
+    "description": "A skill to kill from-scratch coding \u2014 Claude checks real arXiv prior art before it designs a new architecture.",
+    "stars": 436,
+    "language": "TypeScript",
+    "license": "MIT",
+    "pushed_at": "2026-09-17T14:17:54Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "reasoning skill claude"
+    ]
+  },
+  {
+    "full_name": "lingzhi227/agent-research-skills",
+    "html_url": "https://github.com/lingzhi227/agent-research-skills",
+    "description": "Skills for Claude Code \u2014 deep-research: systematic academic literature review",
+    "stars": 414,
+    "language": "Python",
+    "license": null,
+    "pushed_at": "2026-02-27T04:11:14Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-research claude skill"
+    ]
+  },
+  {
+    "full_name": "Socialpranker/deepdive",
+    "html_url": "https://github.com/Socialpranker/deepdive",
+    "description": "Deepdive skill for Claude Code \u2014 12-phase research pipeline: plan-review gate, parallel sub-agent search, claims-ledger triangulation with dissent protection, relevance \u00d7 authority evidence filter, mu",
+    "stars": 373,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-18T07:48:40Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep-research claude skill",
+      "source verification skill"
+    ]
+  },
+  {
+    "full_name": "ginobefun/deep-reading-analyst-skill",
+    "html_url": "https://github.com/ginobefun/deep-reading-analyst-skill",
+    "description": "A professional Claude AI skill for deep reading analysis",
+    "stars": 356,
+    "language": "Shell",
+    "license": "MIT",
+    "pushed_at": "2025-11-04T13:22:46Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep analysis skill"
+    ]
+  },
+  {
+    "full_name": "Sfedfcv/redesigned-pancake",
+    "html_url": "https://github.com/Sfedfcv/redesigned-pancake",
+    "description": "Skip to content github / docs Code Issues 80 Pull requests 35 Discussions Actions Projects 2 Security Insights Merge branch 'main' into 1862-Add-Travis-CI-migration-table  1862-Add-Travis-CI-migration",
+    "stars": 269,
+    "language": null,
+    "license": null,
+    "pushed_at": "2021-05-16T05:22:26Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "source verification skill"
+    ]
+  },
+  {
+    "full_name": "dagoSte/squadra",
+    "html_url": "https://github.com/dagoSte/squadra",
+    "description": "Coordinate Claude, Codex and Cursor windows with shared tasks, acknowledgements, prechecks, parallel tests, source-bound proofs and independent review. Built-in skills recall lessons, simplify code an",
+    "stars": 255,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-19T08:20:05Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "source verification skill"
+    ]
+  },
+  {
+    "full_name": "human-avatar/skills-for-humanity",
+    "html_url": "https://github.com/human-avatar/skills-for-humanity",
+    "description": "Structured reasoning methodologies from history's most rigorous thinkers, packaged as Claude Code skills.",
+    "stars": 232,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-07-15T14:16:11Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "reasoning skill claude"
+    ]
+  },
+  {
+    "full_name": "Neon549/AlphaStock",
+    "html_url": "https://github.com/Neon549/AlphaStock",
+    "description": "A-Share Stock Analysis AI agents for automated trading decisions.",
+    "stars": 199,
+    "language": "Python",
+    "license": null,
+    "pushed_at": "2026-08-29T01:32:45Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "decision analysis agent"
+    ]
+  },
+  {
+    "full_name": "pseudo-longinus/quant-buddy-skills",
+    "html_url": "https://github.com/pseudo-longinus/quant-buddy-skills",
+    "description": "\u5bbd\u5b9d QuantBuddy\uff1a \u4e00\u6574\u5957\u9762\u5411Agent Invesment\u6295\u8d44\u7814\u7a76\u4e0e\u51b3\u7b56\u7684\u5e95\u5c42\u8bbe\u65bd\u4e0e\u80fd\u529b\u7684\u8c03\u7528skill\uff0c \u8986\u76d6A\u80a1/\u6e2f\u80a1/\u7f8e\u80a1/\u671f\u8d27/\u5b8f\u89c2/ETF\u7684\u91cf\u5316\u5206\u6790\u4e0e\u8ba1\u7b97\u3002\u652f\u6301\u884c\u60c5\u3001\u4f30\u503c\u3001\u8d22\u52a1\u67e5\u8be2\u3001\u9009\u80a1\u7b5b\u9009\u3001\u56e0\u5b50\u8ba1\u7b97\u3001\u7b56\u7565\u56de\u6d4b\u3002A complete infrastructure for Agent based investment analysis and decision through ",
+    "stars": 195,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-16T03:20:26Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "decision analysis agent"
+    ]
+  },
+  {
+    "full_name": "zubair-trabzada/dataforseo-claude",
+    "html_url": "https://github.com/zubair-trabzada/dataforseo-claude",
+    "description": "SEO Agency Killer for Claude Code \u2014 powered by DataForSEO. 13 skills + 5 subagents for keyword research, rank tracking, backlink audits, technical crawls, competitor analysis, and PDF reporting. One-c",
+    "stars": 168,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-05-20T20:37:47Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "technical audit skill"
+    ]
+  },
+  {
+    "full_name": "jettbrains/-L-",
+    "html_url": "https://github.com/jettbrains/-L-",
+    "description": "W3C Strategic Highlights  September 2019  This report was prepared for the September 2019 W3C Advisory Committee Meeting (W3C Member link). See the accompanying W3C Fact Sheet \u2014 September 2019. For th",
+    "stars": 164,
+    "language": null,
+    "license": "GPL-3.0",
+    "pushed_at": "2021-08-18T13:41:54Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "decision analysis agent"
+    ]
+  },
+  {
+    "full_name": "lploc94/cross-review",
+    "html_url": "https://github.com/lploc94/cross-review",
+    "description": "Cross-model review skills for Claude Code and Codex CLI: one agent orchestrates, another model reviews plans, code and reasoning.",
+    "stars": 153,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-10-17T07:34:24Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "reasoning skill claude"
+    ]
+  },
+  {
+    "full_name": "roman-rr/trading-skills",
+    "html_url": "https://github.com/roman-rr/trading-skills",
+    "description": "17 triggers \u00d7 44 algorithms \u00d7 3 AI experts \u2014 live crypto trading signals with reasoning for Claude Code, Codex, Cursor & 30+ agents. Free key; Pro adds entry, SL and TP.",
+    "stars": 123,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-10-12T11:02:11Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "reasoning skill claude"
+    ]
+  },
+  {
+    "full_name": "LocoreMind/LocoTrainer",
+    "html_url": "https://github.com/LocoreMind/LocoTrainer",
+    "description": "MS-SWIFT domain expert agent for codebase analysis and report generation",
+    "stars": 114,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-03-13T13:30:03Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "codebase analysis agent"
+    ]
+  },
+  {
+    "full_name": "vishalmdi/ai-native-pm-os",
+    "html_url": "https://github.com/vishalmdi/ai-native-pm-os",
+    "description": "The exhaustive guide to mastering Claude for Product Managers. Build your AI-native PM OS from scratch \u2014 PRDs, research synthesis, stakeholder decks, and autonomous agents. 11 modules, 40+ hours, real",
+    "stars": 109,
+    "language": "Shell",
+    "license": null,
+    "pushed_at": "2026-04-27T04:56:45Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "research synthesis agent"
+    ]
+  },
+  {
+    "full_name": "aws/tools-for-devops-agent",
+    "html_url": "https://github.com/aws/tools-for-devops-agent",
+    "description": "Open-source tools for AWS DevOps Agent - extend DevOps Agent with ready-to-use skills, custom agents, and other tools, for incident response, root cause analysis, and operational troubleshooting",
+    "stars": 109,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-10-18T23:29:32Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "root cause analysis agent"
+    ]
+  },
+  {
+    "full_name": "schickling/dilagent",
+    "html_url": "https://github.com/schickling/dilagent",
+    "description": "\"Deep research for bugs\" \u2013 Agentic root cause analysis through hypothesis-driven debugging",
+    "stars": 107,
+    "language": "TypeScript",
+    "license": null,
+    "pushed_at": "2025-09-10T08:20:57Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "root cause analysis agent"
+    ]
+  },
+  {
+    "full_name": "Diaugeia/paper-glance-skill",
+    "html_url": "https://github.com/Diaugeia/paper-glance-skill",
+    "description": "\ud83d\udcc4 A Claude skill for comprehensive academic paper analysis \u2014 deep reports, mind maps, peer review, and promo scripts.",
+    "stars": 106,
+    "language": null,
+    "license": null,
+    "pushed_at": "2026-07-08T21:57:20Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep analysis skill"
+    ]
+  },
+  {
+    "full_name": "timepatience/-Football-Match-Deep-Analysis-Skillv2",
+    "html_url": "https://github.com/timepatience/-Football-Match-Deep-Analysis-Skillv2",
+    "description": "",
+    "stars": 100,
+    "language": null,
+    "license": "Apache-2.0",
+    "pushed_at": "2026-06-17T11:38:02Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep analysis skill"
+    ]
+  },
+  {
+    "full_name": "saifyxpro/ui-ux-design-pro-skill",
+    "html_url": "https://github.com/saifyxpro/ui-ux-design-pro-skill",
+    "description": "AI spairings, 150+ reasoning rules, CLI, and 18 platform templates. Works with Claude, Cursor, Windsurf, Copilot, Antigravity, Cline & more.kill for premium UI/UX design \u2014 107 styles, 127 palettes, 10",
+    "stars": 87,
+    "language": "TypeScript",
+    "license": "MIT",
+    "pushed_at": "2026-09-15T02:25:24Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "reasoning skill claude"
+    ]
+  },
+  {
+    "full_name": "tronghieu/agent-skills",
+    "html_url": "https://github.com/tronghieu/agent-skills",
+    "description": "Method-driven agent skills for knowledge work: strategy, research, critical thinking, data analysis, docs, slides. Works with Claude Code, Codex, Cursor and any agentskills.io-compatible agent.",
+    "stars": 83,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-18T09:00:45Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "critical thinking skill claude"
+    ]
+  },
+  {
+    "full_name": "longranger2/claude-gpt-workflow",
+    "html_url": "https://github.com/longranger2/claude-gpt-workflow",
+    "description": "Claude Code skills for Claude + GPT collaborative workflows.  Adversarial plan review + orchestrated code execution with iterative refinement.",
+    "stars": 81,
+    "language": "Shell",
+    "license": "MIT",
+    "pushed_at": "2026-06-24T08:09:28Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "adversarial review skill"
+    ]
+  },
+  {
+    "full_name": "AI-MOO/IBM-Machine-Learning-Professional-Certificate",
+    "html_url": "https://github.com/AI-MOO/IBM-Machine-Learning-Professional-Certificate",
+    "description": "Machine Learning, Time Series & Survival Analysis. Develop working skills in the main areas of Machine Learning: Supervised Learning, Unsupervised Learning, Deep Learning, and Reinforcement Learning. ",
+    "stars": 78,
+    "language": "Jupyter Notebook",
+    "license": null,
+    "pushed_at": "2023-07-28T21:26:49Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "deep analysis skill"
+    ]
+  },
+  {
+    "full_name": "zwpride/mABC",
+    "html_url": "https://github.com/zwpride/mABC",
+    "description": "[EMNLP 2024 (Findings)] mABC: multi-Agent Blockchain-inspired Collaboration for root cause analysis in micro-services architecture",
+    "stars": 78,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-08-04T17:10:33Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "root cause analysis agent"
+    ]
+  },
+  {
+    "full_name": "NulightJens/rocket-fuel-skill",
+    "html_url": "https://github.com/NulightJens/rocket-fuel-skill",
+    "description": "Run Claude Fable 5 + OpenAI Codex as co-founders in one Claude Code skill. Fable is the Visionary (plan, standards, review), Codex is the Integrator (filter, build, report). The Rocket Fuel V/I operat",
+    "stars": 78,
+    "language": null,
+    "license": "MIT",
+    "pushed_at": "2026-07-09T01:48:02Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "adversarial review skill"
+    ]
+  },
+  {
+    "full_name": "Aryia-Behroziuan/References",
+    "html_url": "https://github.com/Aryia-Behroziuan/References",
+    "description": " Poole, Mackworth & Goebel 1998, p. 1.  Russell & Norvig 2003, p. 55.  Definition of AI as the study of intelligent agents: Poole, Mackworth & Goebel (1998), which provides the version that is used in",
+    "stars": 74,
+    "language": null,
+    "license": null,
+    "pushed_at": "2022-09-02T16:06:15Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "research synthesis agent",
+      "evidence synthesis agent",
+      "deep analysis skill",
+      "decision analysis agent"
+    ]
+  },
+  {
+    "full_name": "faizkhairi/claude-code-blueprint",
+    "html_url": "https://github.com/faizkhairi/claude-code-blueprint",
+    "description": "A battle-tested, framework-agnostic reference architecture for Claude Code. Beginner-friendly with graduated adoption (minimal / standard / core / full presets). 12 agents, 19 skills, 15 hooks, 6 rule",
+    "stars": 73,
+    "language": "Shell",
+    "license": "MIT",
+    "pushed_at": "2026-09-25T17:54:10Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "reasoning skill claude"
+    ]
+  },
+  {
+    "full_name": "pirua-game/ai_game_base_analysis_cli_mcp_tool",
+    "html_url": "https://github.com/pirua-game/ai_game_base_analysis_cli_mcp_tool",
+    "description": "Game Codebase Analysis AI Agentic Tool",
+    "stars": 70,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-04-12T05:16:21Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "codebase analysis agent"
+    ]
+  },
+  {
+    "full_name": "Snippet-Digital-Agency/tech-seo-audit-skill",
+    "html_url": "https://github.com/Snippet-Digital-Agency/tech-seo-audit-skill",
+    "description": "Technical SEO Audit skill for Claude",
+    "stars": 66,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-04-11T13:25:52Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "technical audit skill"
+    ]
+  },
+  {
+    "full_name": "alexdevassy/AI-Powered-Vulnerability-Impact-Analyzer",
+    "html_url": "https://github.com/alexdevassy/AI-Powered-Vulnerability-Impact-Analyzer",
+    "description": "Vulnerability impact analyzer that reduces false positives in SCA tools by performing intelligent code analysis. Uses agentic AI with open source models to understand CVEs and verify actual vulnerabil",
+    "stars": 66,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2025-02-22T06:57:58Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "codebase analysis agent"
+    ]
+  },
+  {
+    "full_name": "jordanrubin/FUTURE_TOKENS",
+    "html_url": "https://github.com/jordanrubin/FUTURE_TOKENS",
+    "description": "Composable reasoning skills for Claude - antithesize, excavate, metaphorize, synthesize, and more",
+    "stars": 65,
+    "language": "Shell",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-02-19T11:40:31Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "reasoning skill claude"
+    ]
+  },
+  {
+    "full_name": "EthanAlgoX/MarketBot",
+    "html_url": "https://github.com/EthanAlgoX/MarketBot",
+    "description": "MarketBot is a finance-customized version of openclaw, built as a dedicated AI agent for market intelligence, trading analysis, and decision support.",
+    "stars": 65,
+    "language": "TypeScript",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-10-13T16:04:14Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "decision analysis agent"
+    ]
+  },
+  {
+    "full_name": "FractalAIResearchLabs/Fathom-DeepResearch",
+    "html_url": "https://github.com/FractalAIResearchLabs/Fathom-DeepResearch",
+    "description": "Fathom-DeepResearch: Unlocking Long Horizon Information Retrieval And Synthesis For SLMs",
+    "stars": 64,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2025-10-07T09:59:11Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "research synthesis agent"
+    ]
+  },
+  {
+    "full_name": "TsCarpe/claude-sdlc-skills",
+    "html_url": "https://github.com/TsCarpe/claude-sdlc-skills",
+    "description": "AI-native SDLC skills for Claude Code: requirement intake & audit, adversarial review gate, AI test orchestration, decision re-check, release config audit",
+    "stars": 64,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-18T07:27:42Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "adversarial review skill"
+    ]
+  },
+  {
+    "full_name": "lucasfcosta/backpressured",
+    "html_url": "https://github.com/lucasfcosta/backpressured",
+    "description": "Skills for running long unattended AI coding sessions. It will help the agent verify and review its own work using tests, adversarial review, and manual verification through cURL or real browsers. Thi",
+    "stars": 63,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-05-31T11:44:20Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "adversarial review skill"
+    ]
+  },
+  {
+    "full_name": "yoloshii/gigaxity-deep-research",
+    "html_url": "https://github.com/yoloshii/gigaxity-deep-research",
+    "description": "Open-source deep research MCP. Qwen3-30B-A3B-Thinking via OpenRouter, cited web synthesis for Claude Code, Codex, Cursor, Hermes and any MCP-compatible agent.",
+    "stars": 62,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-09-30T11:15:12Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "research synthesis agent"
+    ]
+  },
+  {
+    "full_name": "howardpen9/kimi-code-mcp",
+    "html_url": "https://github.com/howardpen9/kimi-code-mcp",
+    "description": "MCP server for Claude Code \u00d7 Kimi K2.5 (256K context) \u2014 delegate bulk codebase analysis to Kimi, save 90% on token costs. Session caching, parallel agents, TypeScript.",
+    "stars": 61,
+    "language": "TypeScript",
+    "license": "MIT",
+    "pushed_at": "2026-10-12T11:42:54Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "codebase analysis agent"
+    ]
+  },
+  {
+    "full_name": "davetashner/stringer",
+    "html_url": "https://github.com/davetashner/stringer",
+    "description": "Accelerates agentic development in legacy codebases. Creates context and backlogs for agents via pretty good static analysis. Saves inference tokens.",
+    "stars": 57,
+    "language": "Go",
+    "license": "MIT",
+    "pushed_at": "2026-10-13T23:11:49Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "codebase analysis agent"
+    ]
+  },
+  {
+    "full_name": "thynan2002/SDMCAA",
+    "html_url": "https://github.com/thynan2002/SDMCAA",
+    "description": "Soccer Decision-Making and Counterfactual Analysis Agent",
+    "stars": 57,
+    "language": "HTML",
+    "license": null,
+    "pushed_at": "2026-08-19T12:55:50Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "decision analysis agent"
+    ]
+  },
+  {
+    "full_name": "Mr-remon219/search-boost",
+    "html_url": "https://github.com/Mr-remon219/search-boost",
+    "description": "Multi-engine web search and evidence synthesis for AI coding agents. Unified MCP server, Pi extension, and DeepSeek Harness bundle \u2014 free search, X/Twitter, parallel research, and TUI setup.",
+    "stars": 55,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-10-18T04:24:08Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "research synthesis agent",
+      "evidence synthesis agent"
+    ]
+  },
+  {
+    "full_name": "RankSpotAI/awesome-seo-agent-skills",
+    "html_url": "https://github.com/RankSpotAI/awesome-seo-agent-skills",
+    "description": "A curated list of Agent Skills for SEO. Technical audits, keyword research, content briefs, schema, GEO and AI visibility, for Claude Code, Codex, Cursor and OpenClaw.",
+    "stars": 54,
+    "language": "Python",
+    "license": "CC0-1.0",
+    "pushed_at": "2026-10-19T11:22:34Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "technical audit skill"
+    ]
+  },
+  {
+    "full_name": "avivl/cloud-sre-agent",
+    "html_url": "https://github.com/avivl/cloud-sre-agent",
+    "description": "An autonomous SRE agent that monitors cloud logs across multiple platforms, leveraging AI models from various providers to detect anomalies, perform root cause analysis, and automate remediation by cr",
+    "stars": 53,
+    "language": "Go",
+    "license": "MIT",
+    "pushed_at": "2026-06-29T11:57:30Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "root cause analysis agent"
+    ]
+  },
+  {
+    "full_name": "MiroMindAI/MiroEval",
+    "html_url": "https://github.com/MiroMindAI/MiroEval",
+    "description": "MiroEval: A benchmark and evaluation framework for deep research agents \u2014 100 tasks (70 text, 30 multimodal) assessed across synthesis quality, factuality, and research process. 13 systems evaluated.",
+    "stars": 52,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-07-06T14:50:47Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "research synthesis agent"
+    ]
+  },
+  {
+    "full_name": "Adamsmith6300/alder-security-scanner",
+    "html_url": "https://github.com/Adamsmith6300/alder-security-scanner",
+    "description": "An AI-powered security analysis tool for web applications that combines Large Language Model (LLM) analysis with intelligent agent-based verification to identify and validate security vulnerabilities ",
+    "stars": 46,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2025-07-26T16:36:22Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "codebase analysis agent"
+    ]
+  },
+  {
+    "full_name": "wanshuiyin/ALIGN-Agentic-Loop-Image-GeneratioN",
+    "html_url": "https://github.com/wanshuiyin/ALIGN-Agentic-Loop-Image-GeneratioN",
+    "description": "Agentic loop image generation without diffusion or autoregressive image models. Coding agents draw in p5.js, using iterative refinement and adversarial visual review for high-fidelity art and method f",
+    "stars": 46,
+    "language": "HTML",
+    "license": "MIT",
+    "pushed_at": "2026-10-17T09:13:31Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "adversarial review skill"
+    ]
+  },
+  {
+    "full_name": "appariciojunior/website-audit-skill",
+    "html_url": "https://github.com/appariciojunior/website-audit-skill",
+    "description": "A Claude skill for comprehensive website content and UX audits. Content, copy, UX structure, conversion, creative direction, and technical QA in one structured review.",
+    "stars": 45,
+    "language": null,
+    "license": null,
+    "pushed_at": "2026-04-13T19:05:43Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "technical audit skill"
+    ]
+  },
+  {
+    "full_name": "LLM4Ops/Cloud-OpsBench",
+    "html_url": "https://github.com/LLM4Ops/Cloud-OpsBench",
+    "description": "A Reproducible Benchmark for Agentic Root Cause Analysis in Cloud Systems",
+    "stars": 43,
+    "language": "Go",
+    "license": "MIT",
+    "pushed_at": "2026-10-16T02:59:40Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "root cause analysis agent"
+    ]
+  },
+  {
+    "full_name": "leestott/On-Call-Copilot-Multi-Agent",
+    "html_url": "https://github.com/leestott/On-Call-Copilot-Multi-Agent",
+    "description": "On-Call Copilot is an open-source multi-agent AI system built on Microsoft Agent Framework and Agent Services v2 Hosted Agents that automates incident response. It runs four specialist agents concurre",
+    "stars": 43,
+    "language": "Bicep",
+    "license": "MIT",
+    "pushed_at": "2026-09-02T16:52:53Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "root cause analysis agent"
+    ]
+  },
+  {
+    "full_name": "yuchuangu85/llm-anr",
+    "html_url": "https://github.com/yuchuangu85/llm-anr",
+    "description": "Agent-driven Android ANR evidence extraction and AI-assisted root cause analysis pipeline.",
+    "stars": 38,
+    "language": "Python",
+    "license": null,
+    "pushed_at": "2026-09-09T15:44:58Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "root cause analysis agent"
+    ]
+  },
+  {
+    "full_name": "mangollc/claude-seo-skill",
+    "html_url": "https://github.com/mangollc/claude-seo-skill",
+    "description": "Comprehensive SEO & AEO Claude Code plugin for agencies. Keyword research, technical audits, content optimization, local SEO, backlinks, and AI search optimization.",
+    "stars": 38,
+    "language": null,
+    "license": null,
+    "pushed_at": "2026-02-19T23:34:28Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "technical audit skill"
+    ]
+  },
+  {
+    "full_name": "MarsPain/agent_data_synthesis",
+    "html_url": "https://github.com/MarsPain/agent_data_synthesis",
+    "description": "Local-first Python framework for generating, executing, validating, and packaging agent training data with executable state, tool evidence, lineage, replay checks, and release artifacts.",
+    "stars": 36,
+    "language": "Python",
+    "license": null,
+    "pushed_at": "2026-10-01T10:26:58Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "evidence synthesis agent"
+    ]
+  },
+  {
+    "full_name": "AndacGuven/technical-seo-skill",
+    "html_url": "https://github.com/AndacGuven/technical-seo-skill",
+    "description": "This project is a production-oriented technical SEO auditing skill built to behave like a real technical SEO specialist, not a simple crawler. It discovers indexable and non-indexable URLs across a si",
+    "stars": 33,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-03-09T22:41:25Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "technical audit skill"
+    ]
+  },
+  {
+    "full_name": "quantamixsol/graqle",
+    "html_url": "https://github.com/quantamixsol/graqle",
+    "description": "Persistent organisational intelligence for AI agents. Turn codebases, documents, policies and decisions into a knowledge graph \u2014 13 LLM backends, impact analysis, evidence + confidence. Works with Cla",
+    "stars": 32,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "pushed_at": "2026-10-10T12:13:11Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "codebase analysis agent"
+    ]
+  },
+  {
+    "full_name": "Raytracer76/IntentGraph",
+    "html_url": "https://github.com/Raytracer76/IntentGraph",
+    "description": "Transform any codebase into rich, queryable intelligence for AI coding agents. Provides function-level dependencies, semantic analysis, design pattern   detection, and code quality metrics. Stop scann",
+    "stars": 27,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-03-22T06:57:48Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "codebase analysis agent"
+    ]
+  },
+  {
+    "full_name": "s2-streamstore/parallax",
+    "html_url": "https://github.com/s2-streamstore/parallax",
+    "description": "Distributed multi-agent research engine with dynamic strategy planning, durable stream-based coordination, and controlled synthesis",
+    "stars": 26,
+    "language": "Rust",
+    "license": "MIT",
+    "pushed_at": "2026-02-21T12:15:04Z",
+    "archived": true,
+    "fork": false,
+    "matched_queries": [
+      "research synthesis agent"
+    ]
+  },
+  {
+    "full_name": "lionkiii/claude-seo-skills",
+    "html_url": "https://github.com/lionkiii/claude-seo-skills",
+    "description": "42 SEO commands for Claude Code \u2014 site audits, Ahrefs backlinks, GSC analytics, SERP research, content briefs, technical SEO, schema validation, and more",
+    "stars": 22,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-06-11T07:06:25Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "technical audit skill"
+    ]
+  },
+  {
+    "full_name": "wanikua/thinking-skills",
+    "html_url": "https://github.com/wanikua/thinking-skills",
+    "description": "\ud83e\udde0 20 human thinking frameworks as Claude Code custom commands \u2014 Critical Thinking, First Principles, Red Team, Bayesian, and more",
+    "stars": 20,
+    "language": null,
+    "license": null,
+    "pushed_at": "2026-03-12T07:42:32Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "critical thinking skill claude"
+    ]
+  },
+  {
+    "full_name": "Luciole-Studio/apostle-skills",
+    "html_url": "https://github.com/Luciole-Studio/apostle-skills",
+    "description": "Exacting Agent Skills for serious thinking, reading, research, and translation.",
+    "stars": 11,
+    "language": null,
+    "license": "AGPL-3.0",
+    "pushed_at": "2026-09-01T18:48:36Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "critical thinking skill claude"
+    ]
+  },
+  {
+    "full_name": "SuleynanAuir/UPAIRS-Agents",
+    "html_url": "https://github.com/SuleynanAuir/UPAIRS-Agents",
+    "description": "UPARIS-DS (Uncertainty-Aware Paragraph-Level Iterative Reflective Deep Search Agents) is an uncertainty-aware paragraph-level iterative reflective framework that enhances deep search agents through ad",
+    "stars": 10,
+    "language": "Python",
+    "license": null,
+    "pushed_at": "2026-03-02T17:10:33Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "evidence synthesis agent"
+    ]
+  },
+  {
+    "full_name": "Vambrocop/EvidenceForge",
+    "html_url": "https://github.com/Vambrocop/EvidenceForge",
+    "description": "Agent skills for systematic review, meta-analysis, umbrella review, and AI-assisted evidence synthesis.",
+    "stars": 7,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-16T05:57:22Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "evidence synthesis agent"
+    ]
+  },
+  {
+    "full_name": "cdeust/zetetic-team-subagents",
+    "html_url": "https://github.com/cdeust/zetetic-team-subagents",
+    "description": "One epistemic standard on three hosts. Claude Code: 15 problem-shaped skills, 97 sourced reasoning patterns, 120 agents, commit-time gates. Codex and Gemini CLI: portable evidence-synthesis, design an",
+    "stars": 7,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-17T20:42:16Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "evidence synthesis agent"
+    ]
+  },
+  {
+    "full_name": "mateusdka/think-tank-research-skill",
+    "html_url": "https://github.com/mateusdka/think-tank-research-skill",
+    "description": "Open-source Agent Skill for multi-perspective research, evidence-aware synthesis, and auditable AI-assisted decisions.",
+    "stars": 6,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-10-03T23:43:13Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "evidence synthesis agent"
+    ]
+  },
+  {
+    "full_name": "HuginnIndustries/CodeCartographer",
+    "html_url": "https://github.com/HuginnIndustries/CodeCartographer",
+    "description": "Evidence-backed reverse engineering and human-gated software planning for Pi and MCP coding agents.",
+    "stars": 6,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-10-07T22:04:17Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "evidence synthesis agent"
+    ]
+  },
+  {
+    "full_name": "tetckx/deep-structural-analysis-skill",
+    "html_url": "https://github.com/tetckx/deep-structural-analysis-skill",
+    "description": "Deep Structural Analysis \u2014 a multi-perspective structural analysis skill for complex social, economic, philosophical, and systemic questions. 16 lenses, 10 structural tools, an attack-loop protocol ag",
+    "stars": 6,
+    "language": null,
+    "license": "MIT",
+    "pushed_at": "2026-08-21T02:20:32Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-perspective analysis skill"
+    ]
+  },
+  {
+    "full_name": "Johna2an/critical-thinking",
+    "html_url": "https://github.com/Johna2an/critical-thinking",
+    "description": "Open-source Agent Skill for Claude Code that makes Claude reason with explicit probabilities, base rates, and falsifiers. Distilled from 51 books; first in 18/18 blind passes vs baseline Claude and GP",
+    "stars": 6,
+    "language": "HTML",
+    "license": "MIT",
+    "pushed_at": "2026-06-13T06:48:06Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "critical thinking skill claude"
+    ]
+  },
+  {
+    "full_name": "kobolingfeng/moral-compass-ai",
+    "html_url": "https://github.com/kobolingfeng/moral-compass-ai",
+    "description": "Multi-perspective moral and legal assessment framework with 26 philosophical/legal viewpoints, dual-dimension weighting, and conflict analysis. Usable as AI Skill or System Prompt.",
+    "stars": 5,
+    "language": null,
+    "license": "MIT",
+    "pushed_at": "2026-04-02T15:22:32Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-perspective analysis skill"
+    ]
+  },
+  {
+    "full_name": "tywinlu1988/Baker-Street",
+    "html_url": "https://github.com/tywinlu1988/Baker-Street",
+    "description": "\ud83d\udd0d \u798f\u5c14\u6469\u65af\u591a\u89c6\u89d2\u5206\u6790\u5f15\u64ce \u2014 7 \u79cd\u8ba4\u77e5\u539f\u578b\u5e76\u884c\u5206\u6790\uff0c\u6316\u6398\u51b2\u7a81\u4e0e\u76f2\u533a\uff0c\u4ea7\u51fa\u4efb\u4f55\u5355\u4e00\u6a21\u578b\u90fd\u65e0\u6cd5\u8fbe\u5230\u7684\u6d1e\u5bdf\u6df1\u5ea6\u3002Sherlock Holmes analytical framework for Claude Code.",
+    "stars": 3,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-09-03T08:08:18Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-perspective analysis skill"
+    ]
+  },
+  {
+    "full_name": "laynewanggg/critical-thinking-skill",
+    "html_url": "https://github.com/laynewanggg/critical-thinking-skill",
+    "description": "\ud83e\udde0 \u6279\u5224\u6027\u601d\u7ef4AI\u642d\u5b50 - \u57fa\u4e8e\u300a\u5b66\u4f1a\u63d0\u95ee\u300b10\u6b65\u6846\u67b6\u7684Claude Code Skill",
+    "stars": 3,
+    "language": null,
+    "license": null,
+    "pushed_at": "2026-04-09T11:24:30Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "critical thinking skill claude"
+    ]
+  },
+  {
+    "full_name": "babypochi06/cc-thinking-skills",
+    "html_url": "https://github.com/babypochi06/cc-thinking-skills",
+    "description": "\ud83e\udde0 Enhance your AI problem-solving with 39 mental models that improve critical thinking, decision making, and strategic analysis in Claude Code.",
+    "stars": 3,
+    "language": "JavaScript",
+    "license": "MIT",
+    "pushed_at": "2026-10-12T04:40:35Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "critical thinking skill claude"
+    ]
+  },
+  {
+    "full_name": "sashruthasenthil-crypto/AI-Powered-Universal-Career-Skill-Gap-Analyzer",
+    "html_url": "https://github.com/sashruthasenthil-crypto/AI-Powered-Universal-Career-Skill-Gap-Analyzer",
+    "description": "To develop an AI-based system that identifies skill gaps for any career and provides personalized recommendations to improve career readiness.",
+    "stars": 1,
+    "language": "Jupyter Notebook",
+    "license": null,
+    "pushed_at": "2026-07-31T06:56:40Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "universal analyzer skill"
+    ]
+  },
+  {
+    "full_name": "ino461x/discussion-panel",
+    "html_url": "https://github.com/ino461x/discussion-panel",
+    "description": "Multi-perspective analysis panel skill for Claude Code. Break free from confirmation bias.",
+    "stars": 1,
+    "language": null,
+    "license": "MIT",
+    "pushed_at": "2026-04-09T09:30:16Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-perspective analysis skill"
+    ]
+  },
+  {
+    "full_name": "zivtech/harsh-critic",
+    "html_url": "https://github.com/zivtech/harsh-critic",
+    "description": "Thorough review skill for Claude Code with structured gap analysis and multi-perspective investigation",
+    "stars": 1,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "pushed_at": "2026-09-19T13:02:36Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-perspective analysis skill"
+    ]
+  },
+  {
+    "full_name": "jeffaf/council-of-the-wise",
+    "html_url": "https://github.com/jeffaf/council-of-the-wise",
+    "description": "Clawdbot skill: Multi-perspective analysis via spawned sub-agents (Devil's Advocate, Architect, Engineer, Artist)",
+    "stars": 1,
+    "language": null,
+    "license": null,
+    "pushed_at": "2026-02-24T03:00:08Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-perspective analysis skill"
+    ]
+  },
+  {
+    "full_name": "jet52/jetpanel",
+    "html_url": "https://github.com/jet52/jetpanel",
+    "description": "Multi-perspective legal analysis panel for close questions of statutory or constitutional interpretation. A Claude Code skill.",
+    "stars": 1,
+    "language": "Shell",
+    "license": "MIT",
+    "pushed_at": "2026-10-10T02:55:35Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-perspective analysis skill"
+    ]
+  },
+  {
+    "full_name": "v-khanna/claude-council",
+    "html_url": "https://github.com/v-khanna/claude-council",
+    "description": "Claude Code skill for multi-perspective analysis. Dispatches 5 persona agents, runs a debate round, then synthesizes into a recommendation. Claude-only, no external APIs.",
+    "stars": 1,
+    "language": null,
+    "license": null,
+    "pushed_at": "2026-04-23T21:28:58Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "multi-perspective analysis skill"
+    ]
+  },
+  {
+    "full_name": "timwukp/critical-thinking-skills",
+    "html_url": "https://github.com/timwukp/critical-thinking-skills",
+    "description": "Bilingual (\u4e2d\u6587/English) critical thinking Agent Skill for Claude Code \u2014 argument analysis, bias detection, evidence evaluation, red-teaming, and an optional Nietzschean deep-critique mode",
+    "stars": 1,
+    "language": null,
+    "license": "MIT",
+    "pushed_at": "2026-08-20T08:07:51Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "critical thinking skill claude"
+    ]
+  },
+  {
+    "full_name": "3Dboxuser/Universal-ROI-Analyzer-skill",
+    "html_url": "https://github.com/3Dboxuser/Universal-ROI-Analyzer-skill",
+    "description": "Decision-grade AI skill for evidence-backed ROI, hidden costs, scenario analysis, and actionable next steps. \u51b3\u7b56\u7ea7\u4eba\u5de5\u667a\u80fd\u6280\u80fd\uff0c\u7528\u4e8e\u63d0\u4f9b\u57fa\u4e8e\u8bc1\u636e\u7684\u6295\u8d44\u56de\u62a5\u7387\u3001\u9690\u85cf\u6210\u672c\u3001\u60c5\u666f\u5206\u6790\u548c\u53ef\u64cd\u4f5c\u7684\u540e\u7eed\u6b65\u9aa4\u3002",
+    "stars": 0,
+    "language": "Python",
+    "license": "MIT",
+    "pushed_at": "2026-09-08T16:25:19Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "universal analyzer skill"
+    ]
+  },
+  {
+    "full_name": "RadunTheSniffer/universal-firewall-analyzer",
+    "html_url": "https://github.com/RadunTheSniffer/universal-firewall-analyzer",
+    "description": "Don't mind me, a newbie just working with on web development, polishing my skills. Sorry if it's mediocre ",
+    "stars": 0,
+    "language": "HTML",
+    "license": null,
+    "pushed_at": "2025-01-06T02:40:30Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "universal analyzer skill"
+    ]
+  },
+  {
+    "full_name": "mirthiga-07/AI-Powered-Universal-Career-Skill-Gap-Analyzer",
+    "html_url": "https://github.com/mirthiga-07/AI-Powered-Universal-Career-Skill-Gap-Analyzer",
+    "description": "To develop an AI-based system that identifies skill gaps for any career and provides personalized recommendations to improve career readiness.",
+    "stars": 0,
+    "language": "Jupyter Notebook",
+    "license": null,
+    "pushed_at": "2026-08-03T15:20:33Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "universal analyzer skill"
+    ]
+  },
+  {
+    "full_name": "nandhanm986-dotcom/ORIGIN-AURA",
+    "html_url": "https://github.com/nandhanm986-dotcom/ORIGIN-AURA",
+    "description": "ORIGIN AURA (Automated Universal Recruitment Analyzer): An intelligent, AI-driven recruitment pipeline and analytics system designed to seamlessly parse resumes, map candidate skill sets, and optimize",
+    "stars": 0,
+    "language": "Python",
+    "license": null,
+    "pushed_at": "2026-06-01T09:54:52Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "universal analyzer skill"
+    ]
+  },
+  {
+    "full_name": "Priyanshi0907/ResumeAI",
+    "html_url": "https://github.com/Priyanshi0907/ResumeAI",
+    "description": "Universal AI resume analyzer & career intelligence platform powered by FastAPI, spaCy NER, and Groq LLMs. Features ATS score gauges, 5-pillar health diagnostics, skill gap analysis, job matching, and ",
+    "stars": 0,
+    "language": "JavaScript",
+    "license": null,
+    "pushed_at": "2026-10-04T14:23:14Z",
+    "archived": false,
+    "fork": false,
+    "matched_queries": [
+      "universal analyzer skill"
+    ]
+  }
+]

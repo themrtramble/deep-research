@@ -1,0 +1,11 @@
+query: "Compare Tavily vs Exa vs Brave for agent search"
+expected_mode: standard
+expected_min_sources: 10
+expected_subagents: [2, 3]  # [min, max]
+expected_sections:
+  - "Overview"
+  - "Comparison"  # must contain a markdown table
+  - "Recommendation"
+  - "Sources"
+must_cite_domain_pattern: "(tavily|exa\\.ai|brave\\.com|search\\.brave)"
+requires_comparison_table: true

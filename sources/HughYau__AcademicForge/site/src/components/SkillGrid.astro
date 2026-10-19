@@ -1,0 +1,591 @@
+---
+import { CATEGORY_LABELS, CATEGORY_ORDER, SUBDISCIPLINE_LABELS, SUBDISCIPLINE_ORDER, getItemCategory } from '../lib/categories';
+import type { Category, Subdiscipline } from '../lib/categories';
+import { formatCount } from '../lib/registry';
+import type { SkillRecord, SubSkillRecord } from '../lib/registry';
+import SkillCard from './SkillCard.astro';
+
+interface Props {
+  skills: SkillRecord[];
+}
+
+const { skills } = Astro.props;
+
+const sortSubSkills = (items: SubSkillRecord[]) => {
+  return [...items].sort((left, right) => left.name.localeCompare(right.name));
+};
+
+const rootSkillsByCategory = Object.fromEntries(
+  CATEGORY_ORDER.map((category) => [category, [] as SkillRecord[]]),
+) as Record<Category, SkillRecord[]>;
+
+const directSubSkillsByCategory = Object.fromEntries(
+  CATEGORY_ORDER.map((category) => [category, [] as SubSkillRecord[]]),
+) as Record<Category, SubSkillRecord[]>;
+
+const researchSubSkillsBySubdiscipline = Object.fromEntries(
+  SUBDISCIPLINE_ORDER.map((subdiscipline) => [subdiscipline, [] as SubSkillRecord[]]),
+) as Record<Subdiscipline, SubSkillRecord[]>;
+
+skills.forEach((skill) => {
+  rootSkillsByCategory[getItemCategory(skill)].push(skill);
+
+  skill.sub_skills?.forEach((subSkill) => {
+    const category = getItemCategory(subSkill);
+    if (category === 'research' && subSkill.subdiscipline) {
+      researchSubSkillsBySubdiscipline[subSkill.subdiscipline as Subdiscipline].push(subSkill);
+      return;
+    }
+
+    directSubSkillsByCategory[category].push(subSkill);
+  });
+});
+
+for (const category of CATEGORY_ORDER) {
+  directSubSkillsByCategory[category] = sortSubSkills(directSubSkillsByCategory[category]);
+}
+
+for (const subdiscipline of SUBDISCIPLINE_ORDER) {
+  researchSubSkillsBySubdiscipline[subdiscipline] = sortSubSkills(researchSubSkillsBySubdiscipline[subdiscipline]);
+}
+
+const categoryItemCounts = Object.fromEntries(
+  CATEGORY_ORDER.map((category) => {
+    const nestedResearchCount = category === 'research'
+      ? SUBDISCIPLINE_ORDER.reduce((sum, subdiscipline) => sum + researchSubSkillsBySubdiscipline[subdiscipline].length, 0)
+      : 0;
+
+    return [
+      category,
+      rootSkillsByCategory[category].length + directSubSkillsByCategory[category].length + nestedResearchCount,
+    ];
+  }),
+) as Record<Category, number>;
+
+const visibleCategories = CATEGORY_ORDER.filter((category) => categoryItemCounts[category] > 0);
+const initialCategory = visibleCategories[0] ?? 'workflow';
+const visibleResearchSubdisciplines = SUBDISCIPLINE_ORDER.filter((subdiscipline) => researchSubSkillsBySubdiscipline[subdiscipline].length > 0);
+
+const TAGS_PER_CATEGORY = 6;
+const tagCountsByCategory = Object.fromEntries(
+  CATEGORY_ORDER.map((category) => [category, new Map<string, number>()]),
+) as Record<Category, Map<string, number>>;
+
+const countTags = (category: Category, tags?: string[]) => {
+  tags?.forEach((tag) => {
+    const counts = tagCountsByCategory[category];
+    counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  });
+};
+
+skills.forEach((skill) => {
+  countTags(getItemCategory(skill), skill.tags);
+  skill.sub_skills?.forEach((subSkill) => {
+    countTags(getItemCategory(subSkill), subSkill.tags);
+  });
+});
+
+const topTagsByCategory = Object.fromEntries(
+  CATEGORY_ORDER.map((category) => [
+    category,
+    [...tagCountsByCategory[category].entries()]
+      .sort((left, right) => right[1] - left[1])
+      .slice(0, TAGS_PER_CATEGORY)
+      .map(([tag]) => tag),
+  ]),
+) as Record<Category, string[]>;
+
+// Source packages: one per upstream repository. Clicking a chip filters the whole
+// catalog down to that source's main skill plus every sub-skill it ships, using the
+// `data-origin` tag each SkillCard emits (sa / ns / air / cs).
+const ORIGIN_PACKAGES = [
+  { origin: 'sa', code: 'SA', name: 'Scientific Agent Skills' },
+  { origin: 'ns', code: 'NS', name: 'Nature Skills' },
+  { origin: 'air', code: 'AIR', name: 'AI Research Skills' },
+  { origin: 'cs', code: 'CS', name: 'Claude Science' },
+];
+---
+
+<section id="library" class="flex flex-col rounded-[28px] border border-[#e8e6dc] bg-[#faf9f5] p-4 shadow-[0_10px_30px_rgba(20,20,19,0.05)] sm:p-5">
+  <div class="border-b border-[#e8e6dc] pb-3">
+    <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c96442]">
+      <span class="lang-en">Repositories</span>
+      <span class="lang-zh">仓库目录</span>
+    </p>
+    <h1 class="mt-2 font-slab text-[2rem] leading-[1.05] text-[#141413] sm:text-[2.2rem]">
+      <span class="lang-en">Pick what you need.</span>
+      <span class="lang-zh">只选你用得上的。</span>
+    </h1>
+  </div>
+
+  <div class="library-toolbar">
+    <label class="block w-full">
+      <span class="sr-only">Search repositories</span>
+      <input
+        id="skill-search"
+        type="search"
+        placeholder="Search repositories / authors / tags"
+        class="w-full rounded-[16px] border border-[#e8e6dc] bg-white px-4 py-2.5 text-sm text-[#141413] outline-none placeholder:text-[#87867f] focus:border-[#3898ec] focus:shadow-[0_0_0_1px_#3898ec]"
+      />
+    </label>
+
+    <div class="category-tabs" role="tablist" aria-label="Top-level skill categories">
+      {visibleCategories.map((category) => (
+        <button
+          type="button"
+          class="category-tab"
+          role="tab"
+          data-category-tab={category}
+          aria-selected={category === initialCategory}
+          aria-pressed={category === initialCategory}
+        >
+          <span class="lang-en">{CATEGORY_LABELS[category].en}</span>
+          <span class="lang-zh">{CATEGORY_LABELS[category].zh}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="mt-2 flex flex-wrap items-center gap-1.5">
+    <svg viewBox="0 0 16 16" fill="none" class="h-3.5 w-3.5 shrink-0 text-[#c96442]" aria-hidden="true">
+      <path d="M8 1.5c.4 2.6 1.8 4 3 5 1.3 1.1 2 2.4 2 4a5 5 0 0 1-10 0c0-1.3.5-2.4 1.3-3.3-.05.9.3 1.6 1 2 .1-2.8 1-5.4 2.7-7.7Z" fill="currentColor"></path>
+    </svg>
+    {ORIGIN_PACKAGES.map((pkg) => (
+      <button
+        type="button"
+        class="preset-chip"
+        data-origin-filter={pkg.origin}
+        aria-pressed="false"
+      >
+        <span class="skill-card__origin">{pkg.code}</span>
+        <span>{pkg.name}</span>
+      </button>
+    ))}
+    <span class="mx-1 h-4 w-px shrink-0 bg-[#e8e6dc]" aria-hidden="true"></span>
+    {visibleCategories.map((category) => (
+      topTagsByCategory[category].map((tag) => (
+        <button
+          type="button"
+          class:list={['filter-chip', category === initialCategory ? '' : 'hidden']}
+          data-tag-chip={tag.toLowerCase()}
+          data-tag-category={category}
+          aria-pressed="false"
+        >
+          #{tag}
+        </button>
+      ))
+    ))}
+  </div>
+
+  <div id="skill-grid" class="mt-1">
+    {visibleCategories.map((category) => (
+      <section class:list={['skill-panel space-y-3', category === initialCategory ? '' : 'hidden']} data-category-panel={category}>
+        <h2
+          data-panel-heading
+          hidden
+          class="skill-panel__heading font-slab text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-[#c96442]"
+        >
+          <span class="lang-en">{CATEGORY_LABELS[category].en}</span>
+          <span class="lang-zh">{CATEGORY_LABELS[category].zh}</span>
+        </h2>
+
+        {rootSkillsByCategory[category].length > 0 && (
+          <div class="skill-card-grid">
+            {rootSkillsByCategory[category].map((skill, index) => (
+              <SkillCard {...skill} rank={index + 1} />
+            ))}
+          </div>
+        )}
+
+        {directSubSkillsByCategory[category].length > 0 && (
+          <div class="skill-card-grid skill-card-grid--dense">
+            {directSubSkillsByCategory[category].map((skill, index) => (
+              <SkillCard {...skill} compact rank={index + 1} />
+            ))}
+          </div>
+        )}
+
+        {category === 'research' && visibleResearchSubdisciplines.length > 0 && (
+          <div class="space-y-2">
+            {visibleResearchSubdisciplines.map((subdiscipline) => (
+              <details
+                class="skill-group skill-group--sub rounded-[18px] border border-[#e8e6dc] bg-[#faf9f5]"
+                data-category={`${category}-${subdiscipline}`}
+                data-user-open="false"
+              >
+                <summary class="details-summary px-3.5 py-2.5">
+                  <p class="font-slab text-sm font-medium text-[#141413]">
+                    <span aria-hidden="true">{SUBDISCIPLINE_LABELS[subdiscipline].icon}</span>
+                    <span class="ml-2 lang-en">{SUBDISCIPLINE_LABELS[subdiscipline].en}</span>
+                    <span class="ml-2 lang-zh">{SUBDISCIPLINE_LABELS[subdiscipline].zh}</span>
+                  </p>
+
+                  <span class="flex items-center gap-2 text-xs text-[#87867f]">
+                    <span>{formatCount(researchSubSkillsBySubdiscipline[subdiscipline].length)}</span>
+                    <svg viewBox="0 0 16 16" fill="none" class="chevron-icon" aria-hidden="true">
+                      <path d="M3.5 6 8 10.5 12.5 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+                    </svg>
+                  </span>
+                </summary>
+
+                <div class="details-body">
+                  <div class="details-body__inner border-t border-[#f0eee6] bg-white p-3 sm:p-4">
+                    <div class="skill-card-grid skill-card-grid--dense">
+                      {researchSubSkillsBySubdiscipline[subdiscipline].map((skill, index) => (
+                        <SkillCard {...skill} compact rank={index + 1} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+        )}
+      </section>
+    ))}
+  </div>
+
+  <div id="skill-grid-empty" class="hidden rounded-[22px] bg-white px-6 py-10 text-center text-[#87867f] shadow-[0_0_0_1px_#f0eee6]">
+    <svg viewBox="0 0 48 48" fill="none" class="mx-auto h-14 w-14 text-[#d1cfc5]" aria-hidden="true">
+      <circle cx="33" cy="9" r="1.6" fill="#e8833a"></circle>
+      <circle cx="38" cy="14" r="1.2" fill="#ffb300"></circle>
+      <circle cx="29" cy="13" r="1" fill="#e8833a"></circle>
+      <path d="M9 18h30c-1.6 5.4-7 8.4-13 8.4h-1.2c.2 3.8 2.4 6.4 5.7 7.3a1 1 0 0 1 .8 1v3.3a1 1 0 0 1-1 1H17.7a1 1 0 0 1-1-1v-3.3a1 1 0 0 1 .8-1c3.3-.9 5.5-3.5 5.7-7.3h-2.4c-5.5 0-10.3-3-11.8-8.4Z" fill="currentColor"></path>
+      <rect x="13" y="41" width="22" height="3" rx="1.5" fill="currentColor"></rect>
+    </svg>
+    <p id="skill-grid-empty-text" class="mt-3"></p>
+  </div>
+
+  <div class="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 border-t border-[#f0eee6] pt-3 text-[0.78rem] leading-5 text-[#87867f]">
+    <span class="skill-card__origin">SA</span>
+    <span>=</span>
+    <a
+      href="https://github.com/K-Dense-AI/scientific-agent-skills"
+      target="_blank"
+      rel="noreferrer"
+      class="underline decoration-[#d1cfc5] underline-offset-2 hover:text-[#141413]"
+    >
+      Scientific Agent Skills
+    </a>
+    <span>by</span>
+    <a
+      href="https://github.com/K-Dense-AI"
+      target="_blank"
+      rel="noreferrer"
+      class="underline decoration-[#d1cfc5] underline-offset-2 hover:text-[#141413]"
+    >
+      @K-Dense-AI
+    </a>
+    <span aria-hidden="true">·</span>
+    <span class="skill-card__origin">NS</span>
+    <span>=</span>
+    <a
+      href="https://github.com/Yuan1z0825/nature-skills"
+      target="_blank"
+      rel="noreferrer"
+      class="underline decoration-[#d1cfc5] underline-offset-2 hover:text-[#141413]"
+    >
+      Nature Skills
+    </a>
+    <span>by</span>
+    <a
+      href="https://github.com/Yuan1z0825"
+      target="_blank"
+      rel="noreferrer"
+      class="underline decoration-[#d1cfc5] underline-offset-2 hover:text-[#141413]"
+    >
+      @Yuan1z0825
+    </a>
+    <span aria-hidden="true">·</span>
+    <span class="skill-card__origin">AIR</span>
+    <span>=</span>
+    <a
+      href="https://github.com/Orchestra-Research/AI-Research-SKILLs"
+      target="_blank"
+      rel="noreferrer"
+      class="underline decoration-[#d1cfc5] underline-offset-2 hover:text-[#141413]"
+    >
+      AI Research Skills
+    </a>
+    <span>by</span>
+    <a
+      href="https://github.com/Orchestra-Research"
+      target="_blank"
+      rel="noreferrer"
+      class="underline decoration-[#d1cfc5] underline-offset-2 hover:text-[#141413]"
+    >
+      @Orchestra-Research
+    </a>
+    <span aria-hidden="true">·</span>
+    <span class="skill-card__origin">CS</span>
+    <span>=</span>
+    <span>Claude Science by</span>
+    <a
+      href="https://github.com/anthropics"
+      target="_blank"
+      rel="noreferrer"
+      class="underline decoration-[#d1cfc5] underline-offset-2 hover:text-[#141413]"
+    >
+      @anthropics
+    </a>
+  </div>
+</section>
+
+<script>
+  const skillCards = Array.from(document.querySelectorAll<HTMLElement>('.skill-card'));
+  const skillGroups = Array.from(document.querySelectorAll<HTMLDetailsElement>('.skill-group--sub'));
+  const categoryTabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-category-tab]'));
+  const categoryPanels = Array.from(document.querySelectorAll<HTMLElement>('[data-category-panel]'));
+  const searchInput = document.getElementById('skill-search') as HTMLInputElement | null;
+  const emptyState = document.getElementById('skill-grid-empty');
+  const emptyStateText = document.getElementById('skill-grid-empty-text');
+  const grid = document.getElementById('skill-grid');
+  const tagChips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-tag-chip]'));
+  const originChips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-origin-filter]'));
+
+  const translations = {
+    en: {
+      placeholder: 'Search repositories / authors / tags',
+      empty: 'Nothing on the anvil — try another search.',
+    },
+    zh: {
+      placeholder: '搜索仓库 / 作者 / 标签',
+      empty: '铁砧上空空如也——换个搜索词试试。',
+    },
+  };
+
+  let visibleCount = skillCards.length;
+  let activeCategory = categoryTabs.find((button) => button.getAttribute('aria-pressed') === 'true')?.dataset.categoryTab
+    ?? categoryTabs[0]?.dataset.categoryTab
+    ?? '';
+  let activeTag = '';
+  let activeOrigin = '';
+
+  const getLocale = () => document.documentElement.dataset.lang === 'zh' ? 'zh' : 'en';
+
+  const getActivePanel = () => {
+    return categoryPanels.find((panel) => panel.dataset.categoryPanel === activeCategory) ?? null;
+  };
+
+  const panelHasVisibleCard = (panel: HTMLElement) =>
+    Array.from(panel.querySelectorAll<HTMLElement>('.skill-card')).some((card) => !card.classList.contains('hidden'));
+
+  const applyTabState = (globalSearch = false) => {
+    categoryTabs.forEach((button) => {
+      const isActive = button.dataset.categoryTab === activeCategory;
+      button.setAttribute('aria-selected', String(isActive));
+      button.setAttribute('aria-pressed', String(isActive));
+    });
+
+    categoryPanels.forEach((panel) => {
+      // A search query spans the whole catalog: reveal every category panel that
+      // still holds a match, not just the active tab. Without a query we keep the
+      // single-panel tab behaviour.
+      const isVisible = globalSearch
+        ? panelHasVisibleCard(panel)
+        : panel.dataset.categoryPanel === activeCategory;
+      panel.classList.toggle('hidden', !isVisible);
+
+      const heading = panel.querySelector<HTMLElement>('[data-panel-heading]');
+      if (heading) {
+        heading.hidden = !(globalSearch && isVisible);
+      }
+    });
+
+    tagChips.forEach((chip) => {
+      chip.classList.toggle('hidden', chip.dataset.tagCategory !== activeCategory);
+      chip.setAttribute('aria-pressed', String(chip.dataset.tagChip === activeTag));
+    });
+  };
+
+  const syncOriginChips = () => {
+    originChips.forEach((chip) => {
+      const isActive = activeOrigin !== '' && chip.dataset.originFilter === activeOrigin;
+      chip.setAttribute('aria-pressed', String(isActive));
+    });
+  };
+
+  const updateCardSelectionState = (checkbox: HTMLInputElement) => {
+    const card = checkbox.closest('.skill-card');
+    if (!(card instanceof HTMLElement)) {
+      return;
+    }
+
+    card.classList.toggle('is-selected', checkbox.checked);
+  };
+
+  const setCardDetailState = (card: HTMLElement, expanded: boolean) => {
+    card.classList.toggle('is-expanded', expanded);
+
+    const toggle = card.querySelector<HTMLButtonElement>('.skill-card__toggle');
+    const detail = card.querySelector<HTMLElement>('.skill-card__detail-panel');
+
+    toggle?.setAttribute('aria-expanded', String(expanded));
+
+    if (detail) {
+      detail.setAttribute('aria-hidden', String(!expanded));
+      detail.toggleAttribute('inert', !expanded);
+    }
+  };
+
+  const toggleCardDetail = (card: HTMLElement) => {
+    setCardDetailState(card, !card.classList.contains('is-expanded'));
+  };
+
+  const applyLocale = () => {
+    const locale = getLocale();
+
+    if (searchInput) {
+      searchInput.placeholder = translations[locale].placeholder;
+    }
+
+    if (emptyStateText && visibleCount === 0) {
+      emptyStateText.textContent = translations[locale].empty;
+    }
+  };
+
+  const applyFilters = () => {
+    const query = searchInput?.value.trim().toLowerCase() ?? '';
+    const hasQuery = query.length > 0;
+    visibleCount = 0;
+
+    skillCards.forEach((card) => {
+      const search = card.dataset.search ?? '';
+      const matchesQuery = !query || search.includes(query);
+      const matchesTag = !activeTag || search.includes(activeTag);
+      const matchesOrigin = !activeOrigin || card.dataset.origin === activeOrigin;
+      const isVisible = matchesQuery && matchesTag && matchesOrigin;
+
+      card.classList.toggle('hidden', !isVisible);
+      if (isVisible) {
+        visibleCount += 1;
+      }
+    });
+
+    skillGroups.forEach((group) => {
+      const visibleCards = Array.from(group.querySelectorAll<HTMLElement>('.skill-card')).filter((card) => !card.classList.contains('hidden'));
+      const hasVisible = visibleCards.length > 0;
+
+      group.hidden = !hasVisible;
+      group.open = (hasQuery || activeTag !== '' || activeOrigin !== '') ? hasVisible : group.dataset.userOpen === 'true';
+    });
+
+    // A text search or a source-package filter both span the whole catalog, so
+    // either one switches the grid into the cross-category "global" layout. Tab
+    // and tag navigation stay category-scoped.
+    const globalSearch = hasQuery || activeOrigin !== '';
+    applyTabState(globalSearch);
+
+    const activePanel = getActivePanel();
+    const hasVisible = globalSearch
+      ? visibleCount > 0
+      : activePanel
+        ? panelHasVisibleCard(activePanel)
+        : false;
+
+    emptyState?.classList.toggle('hidden', hasVisible);
+    grid?.classList.toggle('hidden', !hasVisible);
+
+    if (emptyStateText && !hasVisible) {
+      emptyStateText.textContent = translations[getLocale()].empty;
+    }
+
+    syncOriginChips();
+  };
+
+  searchInput?.addEventListener('input', applyFilters);
+
+  categoryTabs.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (activeCategory !== button.dataset.categoryTab) {
+        activeTag = '';
+      }
+      activeCategory = button.dataset.categoryTab ?? activeCategory;
+      // Choosing a category tab leaves the cross-category package view.
+      activeOrigin = '';
+      applyFilters();
+    });
+  });
+
+  tagChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const tag = chip.dataset.tagChip ?? '';
+      activeTag = activeTag === tag ? '' : tag;
+      applyFilters();
+    });
+  });
+
+  originChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const origin = chip.dataset.originFilter ?? '';
+      // Toggle: clicking the active package again clears the filter.
+      activeOrigin = activeOrigin === origin ? '' : origin;
+      // A package view is a fresh browse, so drop any category-scoped tag.
+      activeTag = '';
+      applyFilters();
+    });
+  });
+
+  skillGroups.forEach((group) => {
+    group.dataset.userOpen = String(group.open);
+    group.addEventListener('toggle', () => {
+      if ((searchInput?.value.trim() ?? '') === '') {
+        group.dataset.userOpen = String(group.open);
+      }
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const toggle = target.closest('.skill-card__toggle');
+    if (toggle instanceof HTMLButtonElement) {
+      const card = toggle.closest('.skill-card');
+      if (card instanceof HTMLElement) {
+        toggleCardDetail(card);
+      }
+      return;
+    }
+
+    // Links, buttons, the checkbox label, sub-group summaries, and the expanded
+    // detail body keep their own behavior; any other click on a card selects it.
+    if (target.closest('a, button, input, label, summary, .skill-card__detail-panel')) {
+      return;
+    }
+
+    const card = target.closest('.skill-card');
+    if (!(card instanceof HTMLElement)) {
+      return;
+    }
+
+    // A drag that selected text is not a selection gesture.
+    if ((window.getSelection()?.toString() ?? '') !== '') {
+      return;
+    }
+
+    const checkbox = card.querySelector<HTMLInputElement>('.skill-checkbox');
+    if (!checkbox) {
+      return;
+    }
+
+    checkbox.checked = !checkbox.checked;
+    checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+
+  document.addEventListener('change', (event) => {
+    const target = event.target;
+    if (target instanceof HTMLInputElement && target.classList.contains('skill-checkbox')) {
+      updateCardSelectionState(target);
+    }
+  });
+
+  window.addEventListener('academicforge:locale-change', applyLocale);
+
+  document.querySelectorAll<HTMLInputElement>('.skill-checkbox').forEach(updateCardSelectionState);
+  skillCards.forEach((card) => setCardDetailState(card, card.classList.contains('is-expanded')));
+  applyFilters();
+  applyLocale();
+</script>

@@ -1,0 +1,17 @@
+{
+  "name": "deep-research-skill",
+  "version": "0.1.0",
+  "description": "A tiered deep-research skill for Claude Code and opencode.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/classifier/*.js && node tests/pressure/run_pressure.js",
+    "test:classifier": "node --test tests/classifier/*.js",
+    "test:smoke": "bash tests/smoke/run_quick.sh",
+    "test:pressure": "node tests/pressure/run_pressure.js",
+    "lint": "node --check skill/scripts/*.js tests/classifier/*.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

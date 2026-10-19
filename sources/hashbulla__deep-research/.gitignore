@@ -1,0 +1,31 @@
+# Claude Code local settings
+.claude/settings.local.json
+
+# Runtime artifacts produced by the skill (CWD-only — example fixtures and
+# test fixtures live under examples/ and tests/fixtures/ and are committed.)
+/research-plan.md
+/research-report.md
+/research-sources.json
+/research-evidence.json
+/research-solution-space.json
+/research-toolbox.md
+/research-toolbox.json
+
+# Skill-harness review output — local audit artifact, never committed
+/REVIEW.md
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python / virtualenv (defensive)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node (defensive)
+node_modules/

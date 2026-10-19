@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Unit tests (classifier + dedup + validator)
+        run: node --test tests/classifier/*.js
+
+      - name: Pressure static checks (countermeasure regression guard)
+        run: node tests/pressure/run_pressure.js
+
+      - name: Smoke — quick mode
+        run: bash tests/smoke/run_quick.sh
+
+      - name: Smoke — standard mode
+        run: bash tests/smoke/run_standard.sh
+
+      - name: Smoke — deep mode
+        run: bash tests/smoke/run_deep.sh
+
+      - name: Lint (syntax-check)
+        run: make lint

@@ -1,0 +1,39 @@
+forge:
+  name: "academic-forge"
+  version: "1.0.0"
+  description: "A site-first academic skill catalog and installer"
+  repository: "https://github.com/HughYau/AcademicForge"
+  homepage: "https://hughyau.github.io/AcademicForge/"
+  license: "MIT"
+
+branch_model:
+  main: "site-first"
+
+runtime:
+  source_of_truth: "registry/skills.json"
+  local_skill_content:
+    - "skills/scientific-visualization"
+    - "skills/claude-science"
+
+installation:
+  method: "registry-installer"
+  commands:
+    - "curl -sSL https://raw.githubusercontent.com/HughYau/AcademicForge/refs/heads/site-first/scripts/forge-install.sh | bash -s -- --tool claude --skills humanizer,superpowers"
+    - "powershell -NoProfile -Command \"$script = Join-Path $PWD 'forge-install.ps1'; Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/HughYau/AcademicForge/refs/heads/site-first/scripts/forge-install.ps1' -OutFile $script; & $script -Tool claude -Skills 'humanizer,superpowers'; Remove-Item $script\""
+
+update:
+  method: "site-first-catalog"
+  commands:
+    - "node scripts/build-skill-index.mjs --check"
+    - "node scripts/validate-registry.mjs"
+
+notes: |
+  The `site-first` branch is the main (default) branch used by the GitHub Pages
+  site, `registry/skills.json`, and the installer scripts.
+
+  The legacy submodule-based `master` branch has been retired.
+
+  `skills/scientific-visualization` and the `skills/claude-science` collection
+  (Anthropic's Claude Science skills) are maintained locally on `site-first`.
+  Rebuild the collection index after editing them with
+  `node scripts/build-skill-index.mjs --only claude-science`.

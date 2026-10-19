@@ -1,0 +1,36 @@
+name: Validate Site-First Branch
+
+on:
+  push:
+    branches: [site-first]
+    paths:
+      - 'registry/**'
+      - 'scripts/**'
+      - 'site/**'
+      - 'skills/scientific-visualization/**'
+      - 'skills/claude-science/**'
+      - 'package.json'
+  pull_request:
+    branches: [site-first]
+    paths:
+      - 'registry/**'
+      - 'scripts/**'
+      - 'site/**'
+      - 'skills/scientific-visualization/**'
+      - 'skills/claude-science/**'
+      - 'package.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci --prefix site
+      - run: npm run ci:validate
+      - run: bash scripts/tests/forge-install-local-registry.sh
+      - run: bash scripts/tests/forge-install-multiple-sparse-checkouts.sh

@@ -1,0 +1,14 @@
+# A query on a topic with known disagreement. Exercises the Adversarial
+# Reviewer persona, which must surface sources that disagree.
+query: "Survey the debate over whether LLM agents should use long context vs retrieval-augmented generation"
+expected_mode: deep
+expected_min_sources: 20
+expected_subagents: [4, 5]
+expected_sections:
+  - "Executive summary"
+  - "Position A"         # long-context camp
+  - "Position B"         # RAG camp
+  - "Where sources disagree"  # critical — must be present
+  - "Sources"
+requires_evidence_jsonl: true
+requires_disagreement_section: true

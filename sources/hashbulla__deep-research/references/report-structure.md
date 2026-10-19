@@ -1,0 +1,182 @@
+# Report structure & output schemas
+
+All filenames below are relative to the invocation CWD. Write artifacts atomically at end of Phase 6. Do not emit partial reports during intermediate phases.
+
+## 1. `research-report.md`
+
+### Report header — mandatory order
+
+Three header blocks precede the title, each emitted only when its condition holds, in this exact order:
+
+1. **Gate-FAIL banner — line 1 of the file.** When `check-artifacts` or `check-solution-space` ends the run on a persistent FAIL, the first line is the verdict: `> **GATE FAIL — <command>: <one-line reason>. This report does not establish the state of the art.**` A failing run still delivers every artifact; it may not claim SOTA anywhere in the body.
+2. **Declared-incompleteness obligations.** One bullet per `declared_incompleteness` entry in `research-solution-space.json`, quoting the entry's `text` and stating its `obligation`. A caveat that stayed inside the manifest is a caveat that was not surfaced.
+3. **Non-applicable geometry declaration.** When `question_geometry.solution_space_applicable` is `false`, one line quoting the declared `reason`, so a reader can see the sweep was decided against rather than forgotten.
+
+```markdown
+<Line 1, only on a persistent gate failure: "> **GATE FAIL — <command>: <reason>. This report does not establish the state of the art.**">
+
+<Then, one bullet per `declared_incompleteness` entry: "> **Declared incompleteness:** <text> → <obligation>">
+
+<Then, only when applicable = false: "> **Solution-space geometry: not applicable** — <quoted reason>">
+
+# <Title derived from research question, in --lang>
+
+> Research date: YYYY-MM-DD · Skill: deep-research · Length: <short|standard|exhaustive>
+> Source count: <cited>/<candidates> · Tier 1/2 share: <pct> · Median source date: <YYYY-MM-DD>
+> Classification: <academic|technical|current-affairs|mixed> · Profile: <profile>
+
+## Executive summary
+
+- <≤5 bullets, each ≤2 sentences, each with ≥1 citation>
+- <bullets are CONFIRMED claims only — any PROBABLY TRUE / POSSIBLY TRUE belongs in the body>
+
+## <Section per sub-question — numbered and titled>
+
+<Prose with inline [^n] footnote citations. Surgical quotes only (≤3 sentences). Each claim carries an Admiralty confidence tag where non-obvious: [CONFIRMED] / [PROBABLY TRUE] / [POSSIBLY TRUE]. Claims tagged [DOUBTFUL] / [IMPROBABLE] / [UNVERIFIED] do NOT appear in these sections — they belong in "Needs Verification".>
+
+## Solution-space benchmark
+
+<Emitted whenever `question_geometry.solution_space_applicable` is true. One table, one row per candidate solution surfaced by the Phase-1b sweep.>
+
+| Solution | Class | Cost | Risk class | Use-case coverage | Verdict |
+|---|---|---|---|---|---|
+| <name> | <custom-build \| built-in \| open-source \| commercial> | <price or "free" — dated> | <official-api-wrapper \| managed-public-scraping \| session-delegation \| credentialed-self-hosted \| none> | <which sub-questions / use cases it covers, and which it does not> | <recommended \| viable \| rejected — with the one-line reason> |
+
+<Every row carries at least one `[^n]` citation resolving to `research-sources.json`, and a date — a price or capability claim without a retrieval date is unusable within weeks. Rows are drawn from the manifest's `categories[].findings`; a custom-build baseline row is always present, so the benchmark compares against building it rather than assuming it.>
+
+## Contradictions & open debates
+
+<One subsection per axis where Tier 1/2 sources disagree. Each side's evidence cited inline. End with the current best-supported position or explicit "unresolved".>
+
+## Needs Verification
+
+<Claims that failed the corroboration gate (credibility 4–6). Each item lists: the claim, why it is unverified, what additional source type would resolve it.>
+
+## Methodology note
+
+- Tier profile: <profile>, domain allowlist size: <n>
+- Sub-questions: <n>
+- Tavily calls: <n search> + <n research> + <n extract> + <n map> + <n crawl>
+- CRAG iterations triggered: <n> (on sub-questions <…>)
+- Quality gates: groundedness <pct>, source quality <pct>, coverage <pct>, freshness <median date>, corroboration rate <pct>
+- Known gaps: <list, if any — e.g., "no full-text academic search; coverage limited to abstracts for commercial journals">
+
+## Sources
+
+[^1]: <Title>, <Publisher>, <YYYY-MM-DD>. <URL> — Tier <n>, Admiralty <X><digit>, sub-questions: <list>
+[^2]: ...
+```
+
+### Tone rules
+- Match `--lang`. Preserve original-language key terms when they are proper nouns (legislation names, institution names, paper titles).
+- No hedging filler ("it seems that", "possibly" — if the claim is possibly true, tag it `[POSSIBLY TRUE]` explicitly rather than softening prose).
+- No first-person ("I found…"). The report speaks as an analyst, not a narrator.
+- No meta-commentary about the skill's own process beyond the Methodology note.
+
+## 2. `research-plan.md`
+
+Full template at `references/research-plan-template.md`. Produced at Phase 0. **Not overwritten by later phases** — it is the approval artifact.
+
+## 3. `research-sources.json`
+
+Array of source records. One record per cited URL.
+
+```json
+[
+  {
+    "id": "S001",
+    "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+    "url_canonical": "eur-lex.europa.eu/eli/reg/2024/1689/oj",
+    "url_punycode": "eur-lex.europa.eu/eli/reg/2024/1689/oj",
+    "title": "Regulation (EU) 2024/1689 of the European Parliament...",
+    "publisher": "Official Journal of the European Union",
+    "author": null,
+    "published_date": "2024-07-12",
+    "accessed_date": "2026-04-17",
+    "domain_tier": 1,
+    "admiralty_reliability": "A",
+    "tavily_score": 0.94,
+    "retrieval_tool": "tavily_search",
+    "retrieval_query": "EU AI Act GPAI provisions 2026 official journal",
+    "sub_questions": ["sq1", "sq2"],
+    "primary_source": true,
+    "notes": ""
+  }
+]
+```
+
+### Required fields
+- `id` — sequential `S001`, `S002`…
+- `url` — as retrieved from Tavily.
+- `url_canonical` — lowercased, tracking params stripped.
+- `url_punycode` — host normalized to punycode (defense against homograph spoofing).
+- `title`
+- `publisher` — derived from domain + Tavily metadata.
+- `author` — if extractable from byline, else `null`.
+- `published_date` — ISO 8601; `null` only if genuinely absent.
+- `accessed_date` — ISO 8601 (today).
+- `domain_tier` — integer 1–4.
+- `admiralty_reliability` — one of `A`, `B`, `C`, `D`, `E`, `F`.
+- `tavily_score` — float 0–1, or `null` when the retrieval tool does not return a score (`tavily_extract`, `tavily_map`, `tavily_crawl`, `WebSearch` fallback). Never fabricate a score; a null-score source documents its admission path in `notes`.
+- `retrieval_tool` — which `mcp__tavily__*` surfaced this result, `context7_query_docs` for documentation chunks, or `WebSearch` on fallback.
+- `doc_provenance` — optional object, required for Context7 chunks: `{library_id, version, section}`; the record's `url` carries the canonical documentation URL the chunk maps to.
+- `retrieval_query` — exact query string used.
+- `sub_questions` — array of sub-question IDs referenced in the plan.
+- `primary_source` — boolean. True for original research / regulation / dataset; false for commentary or summary.
+- `credibility_overlay` — optional object, present only when the user-scope MBFC overlay dataset rated this domain: `{source, factual_reporting, bias, action: none|flag|downgrade, dataset_version}` (rules in `references/methodology.md` §6 "Credibility overlay"). A `downgrade` action means the record's `domain_tier` already reflects the worsened tier.
+- `notes` — free text. Always populated on `WebSearch` fallback or on any deviation (paywall, abstract-only, corroboration incomplete, etc.). When a source was first surfaced via the newsletter-signal corpus (`references/newsletter-signal.md`), record the discovery channel here as `surfaced via newsletter-signal corpus <date>` — the brief is a routing signal, never itself a source record, and this note is its only footprint. `retrieval_tool` still reflects the tool that actually retrieved the URL (e.g. `tavily_search`), not the corpus.
+- `retrieval_status` — optional enum `direct | stealth | robots_overridden | blocked`. **Audit metadata only — never affects the grade.** `stealth` / `robots_overridden` records carry `retrieval_tool: "scrapling_stealth"` and `tavily_score: null`; `blocked` marks a recall gap (a relevant URL no rung could retrieve), documented in `notes` and the Methodology note.
+- `account_provenance` — optional object for account-based sources: `{platform, handle, verified, account_reliability_basis, post_timestamp}`. Drives account-derived reliability (methodology §6). `domain_tier` for such records is the rubric-derived tier, not a registry tier.
+
+## 4. `research-evidence.json`
+
+Array of claim records. One record per distinct factual claim in `research-report.md`.
+
+```json
+[
+  {
+    "claim_id": "C001",
+    "claim_text": "GPAI obligations under Articles 53–55 entered application on 2 August 2025.",
+    "section": "1. GPAI provisions in force in 2026",
+    "supporting_source_ids": ["S001", "S002"],
+    "contradicting_source_ids": [],
+    "admiralty_credibility": 1,
+    "label": "CONFIRMED",
+    "corroboration_count": 2,
+    "independent_tier12_count": 2,
+    "primary_source_present": true,
+    "notes": ""
+  }
+]
+```
+
+### Required fields
+- `claim_id` — sequential `C001`, `C002`…
+- `claim_text` — verbatim sentence or compact paraphrase.
+- `section` — section heading in `research-report.md` where the claim appears.
+- `supporting_source_ids` — array of `research-sources.json` IDs.
+- `contradicting_source_ids` — array of source IDs whose content disagrees with the claim.
+- `admiralty_credibility` — integer 1–6.
+- `label` — `CONFIRMED` / `PROBABLY TRUE` / `POSSIBLY TRUE` / `DOUBTFUL` / `IMPROBABLE` / `UNVERIFIED`.
+- `corroboration_count` — integer. Count of distinct independent sources supporting the claim.
+- `independent_tier12_count` — integer. Count restricted to Tier 1/2 sources.
+- `primary_source_present` — boolean. True if ≥1 supporting source has `primary_source: true`.
+- `anchor` — optional object; span-level grounding (required on every claim under the `critical` rigor profile). `anchor_type` discriminates: `verbatim_quote` (web sources — carries `quote`, ≤600 chars, the surgical quote that entails the claim) or `snapshot_char_range` (persisted corpus documents — carries `doc_id`, `char_range` `[start, end)`, and `snapshot_sha256` of the persisted snapshot the offsets are computed against). Char offsets are NEVER emitted against unpersisted web content — Tavily output is reprocessed and offsets would have no stable referent.
+- `notes` — free text (e.g., "paywalled source, abstract only", "CRAG iteration 1 added S042").
+
+## 5. `research-solution-space.json`
+
+One manifest object per run — artifact #5, emitted on **every** run including `not-applicable` geometries. **Authoritative contract: `tests/schema/research-solution-space.schema.json`** (draft-07, `additionalProperties: false` throughout); doctrine — categories, status vocabulary, capability classes, critic contract — in `references/solution-space.md`. The deterministic rules `verify_gates.py check-solution-space` enforces on top of the schema are tabulated in `references/quality-gate.md` §"Solution-space gates".
+
+Top-level shape (all required): `schema_version` (const `1`), `generated` (`YYYY-MM-DD`), `question`, `question_geometry` (`solution_space_applicable`, `reason`, optional `platforms`), `categories` (exactly 6 — the closed key set `platform-official-api` · `own-stack` · `open-source` · `mcp-registries` · `commercial-vendors` · `substitution-channels`, each with `status` ∈ swept/empty/waived/not-applicable/degraded, `reason`, `date`, and conditionally `queries`, `registries`, `findings`, `control`), `declared_incompleteness` (entries of kind `refused-universal` or `non-exhaustive-inventory`, each with `text` + `obligation`), and `critic` (`ran`, `model`, `findings`, optional `waivers_reviewed` / `skip_reason`).
+
+`findings[].source_ids` reference `research-sources.json` records by `id` — a benchmark row's citation and its manifest finding resolve to the same source.
+
+## Validation rules (emitter self-check before write)
+
+- Every `[^n]` in `research-report.md` resolves to a `research-sources.json` record.
+- Every `research-sources.json` record with `primary_source: true` has `domain_tier ≤ 2`.
+- No `research-evidence.json` claim with `admiralty_credibility ≤ 3` is absent from the main report body (should appear in its sub-question section).
+- No `research-evidence.json` claim with `admiralty_credibility ≥ 4` appears in the main body — all must be under "Needs Verification".
+- Median `published_date` of cited sources is within `--since` (if set) or within the last 3 years (if not set).
+- `research-sources.json` contains no record with a non-null `tavily_score < 0.7` (unless the record is tagged in `notes` as a recency-critical Tier 1 source manually retained). Null-score records (score-less retrieval tools) document their admission path in `notes`.

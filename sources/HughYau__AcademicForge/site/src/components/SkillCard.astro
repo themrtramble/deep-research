@@ -1,0 +1,225 @@
+---
+import { formatCount } from '../lib/registry';
+import type { LocalizedText } from '../lib/registry';
+
+interface Props {
+  id: string;
+  name: string;
+  summary: LocalizedText;
+  author?: string;
+  repository?: string;
+  license?: string;
+  skill_count?: number;
+  stars?: number;
+  tags?: string[];
+  rank: number;
+  compact?: boolean;
+  [key: string]: unknown;
+}
+
+const {
+  id,
+  name,
+  summary,
+  author,
+  repository,
+  license,
+  skill_count,
+  stars,
+  tags = [],
+  compact = false,
+} = Astro.props;
+
+const count = skill_count ?? 1;
+const searchText = [id, name, summary.en, summary.zh, author ?? '', repository ?? '', license ?? '', ...tags]
+  .join(' ')
+  .toLowerCase();
+const detailSlug = id.replace(/[^a-zA-Z0-9_-]/g, '-');
+const detailId = `skill-detail-${detailSlug}`;
+const titleId = `skill-title-${detailSlug}`;
+
+// Each source repository is identified by SA / NS / AIR / CS. Sub-skills carry the
+// prefix in their id; the four parent skills are mapped explicitly so a package
+// filter can reveal a repo's main skill together with all of its sub-skills.
+const ORIGIN_BY_MAIN_ID: Record<string, string> = {
+  'scientific-agent-skills': 'sa',
+  'AI-research-SKILLs': 'air',
+  'nature-skills': 'ns',
+  'claude-science': 'cs',
+};
+const origin = id.startsWith('sa.')
+  ? 'sa'
+  : id.startsWith('air.')
+    ? 'air'
+    : id.startsWith('ns.')
+      ? 'ns'
+      : id.startsWith('cs.')
+        ? 'cs'
+        : ORIGIN_BY_MAIN_ID[id] ?? '';
+const ORIGIN_LABELS: Record<string, string> = { sa: 'SA', ns: 'NS', air: 'AIR', cs: 'CS' };
+const sourceLabel = origin ? ORIGIN_LABELS[origin] : '';
+
+// Only a few keyword tags ride along on the compact face; the summary gets the room.
+const compactTags = tags.slice(0, 3);
+---
+
+<article
+  class:list={[
+    'skill-card rounded-[18px] border border-[#e8e6dc] bg-white',
+    compact ? 'skill-card--compact px-3.5 py-3' : 'px-4 py-3.5',
+  ]}
+  data-skill-id={id}
+  data-search={searchText}
+  data-origin={origin || undefined}
+>
+  <div class="flex items-start gap-2.5">
+    <label class="skill-card__selection relative inline-flex shrink-0 cursor-pointer items-center pt-0.5">
+      <input
+        type="checkbox"
+        class="skill-checkbox peer absolute inset-0 m-0 h-full w-full cursor-pointer opacity-0"
+        aria-label={`Select ${name}`}
+        data-skill-id={id}
+        data-skill-name={compact ? id : name}
+        data-skill-count={String(count)}
+      />
+      <span class="flex h-7 w-7 items-center justify-center rounded-[10px] border border-[#d1cfc5] bg-white text-transparent shadow-[0_0_0_1px_#f0eee6] transition peer-checked:border-[#c96442] peer-checked:bg-[#c96442] peer-checked:text-[#faf9f5] peer-focus-visible:border-[#3898ec] peer-focus-visible:shadow-[0_0_0_1px_#3898ec]">
+        <svg viewBox="0 0 20 20" fill="none" class="h-3.5 w-3.5" aria-hidden="true">
+          <path d="M4.5 10.5 8 14l7.5-8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+        </svg>
+      </span>
+    </label>
+
+    <div class="skill-card__surface min-w-0 flex flex-1 items-start gap-2">
+      <div class="min-w-0 flex-1">
+        <div class="flex min-w-0 items-center gap-1.5">
+          <h3 id={titleId} class:list={[
+            compact ? 'text-[1.02rem]' : 'text-[1.12rem]',
+            'skill-card__title font-slab leading-[1.24] text-[#141413]',
+          ]}>
+            {name}
+          </h3>
+          {compact && sourceLabel && <span class="skill-card__origin">{sourceLabel}</span>}
+        </div>
+
+        <p
+          class:list={[
+            compact ? 'skill-card__summary--compact mt-0.5 text-[0.85rem] leading-6' : 'skill-card__summary--default mt-1 text-[0.9rem] leading-6',
+            'text-[#5e5d59]',
+          ]}
+        >
+          <span class="lang-en">{summary.en}</span>
+          <span class="lang-zh">{summary.zh}</span>
+        </p>
+
+        {compact && compactTags.length > 0 && (
+          <div class="skill-card__facts mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.78rem] leading-5 text-[#87867f]">
+            {compactTags.map((tag) => (
+              <span>#{tag}</span>
+            ))}
+          </div>
+        )}
+
+        {!compact && (
+          <div class="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-[0.8rem] leading-5 text-[#87867f]">
+            {typeof stars === 'number' && (
+              <span>
+                {formatCount(stars)}
+                <span class="lang-en"> stars</span>
+                <span class="lang-zh"> star</span>
+              </span>
+            )}
+            <span>
+              {formatCount(count)}
+              <span class="lang-en"> skills</span>
+              <span class="lang-zh"> skill</span>
+            </span>
+          </div>
+        )}
+      </div>
+
+      <button
+        type="button"
+        class="skill-card__toggle inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#e8e6dc] bg-[#f5f4ed] text-[#5e5d59]"
+        aria-expanded="false"
+        aria-controls={detailId}
+      >
+        <svg viewBox="0 0 16 16" fill="none" class="chevron-icon" aria-hidden="true">
+          <path d="M3.5 6 8 10.5 12.5 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="skill-card__detail-shell">
+    <div id={detailId} class="skill-card__detail-panel" role="region" aria-labelledby={titleId} aria-hidden="true" inert>
+      <div class="skill-card__detail-inner mt-2 border-t border-[#f0eee6] pt-2.5">
+        {tags.length > 0 && (
+          <ul class="flex flex-wrap gap-1.5">
+            {tags.map((tag) => (
+              <li class="rounded-full border border-[#e8e6dc] bg-[#faf9f5] px-2 py-0.5 text-[0.75rem] leading-5 text-[#5e5d59]">
+                #{tag}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <dl class="skill-card__meta mt-2.5 grid gap-x-3 gap-y-1.5 text-xs leading-6 text-[#4d4c48] sm:grid-cols-[82px_minmax(0,1fr)]">
+          {compact && (
+            <div class="contents">
+              <dt class="text-[#87867f]">ID</dt>
+              <dd><code>{id}</code></dd>
+            </div>
+          )}
+
+          {author && (
+            <div class="contents">
+              <dt class="text-[#87867f]">
+                <span class="lang-en">Author</span>
+                <span class="lang-zh">作者</span>
+              </dt>
+              <dd>
+                <a
+                  href={`https://github.com/${author}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="underline decoration-[#d1cfc5] underline-offset-4 hover:text-[#141413]"
+                >
+                  @{author}
+                </a>
+              </dd>
+            </div>
+          )}
+
+          {license && (
+            <div class="contents">
+              <dt class="text-[#87867f]">
+                <span class="lang-en">License</span>
+                <span class="lang-zh">许可</span>
+              </dt>
+              <dd>{license}</dd>
+            </div>
+          )}
+
+          {repository && !compact && (
+            <div class="contents">
+              <dt class="text-[#87867f]">
+                <span class="lang-en">Repository</span>
+                <span class="lang-zh">仓库</span>
+              </dt>
+              <dd>
+                <a
+                  href={repository}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="underline decoration-[#d1cfc5] underline-offset-4 hover:text-[#141413]"
+                >
+                  GitHub
+                </a>
+              </dd>
+            </div>
+          )}
+        </dl>
+      </div>
+    </div>
+  </div>
+</article>

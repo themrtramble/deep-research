@@ -1,0 +1,23 @@
+{
+  "name": "deep-research",
+  "version": "1.0.0",
+  "description": "Professional multi-agent deep research system for Claude Code. Investigates any topic across 100+ sources with recursive citation chasing, 6-dimension source credibility scoring, evidence triangulation, and knowledge synthesis. Deploys parallel specialized agents, validates every source, and produces professional reports with full bibliography.",
+  "author": {
+    "name": "Andre",
+    "url": "https://github.com/Silence-view"
+  },
+  "repository": "https://github.com/Silence-view/deep-research",
+  "license": "MIT",
+  "keywords": [
+    "deep-research",
+    "multi-agent",
+    "source-validation",
+    "citation-chasing",
+    "evidence-triangulation",
+    "credibility-scoring",
+    "literature-review",
+    "research-automation",
+    "knowledge-synthesis",
+    "claude-code-skill"
+  ]
+}

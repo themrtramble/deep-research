@@ -1,0 +1,776 @@
+---
+import CodeBlock from './CodeBlock.astro';
+---
+
+<section id="install-builder" class="flex flex-col rounded-[28px] border border-[#e8e6dc] bg-[#faf9f5] p-4 shadow-[0_10px_30px_rgba(20,20,19,0.05)] sm:p-5 lg:sticky lg:top-[96px] lg:max-h-[calc(100svh-108px)] lg:overflow-y-auto">
+  <div class="space-y-1.5 border-b border-[#e8e6dc] pb-3">
+    <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c96442]">
+      <span class="lang-en">Install command</span>
+      <span class="lang-zh">安装命令</span>
+    </p>
+    <h2 class="font-slab text-[1.6rem] leading-[1.1] text-[#141413]">
+      <span class="lang-en">Copy. Paste. Run.</span>
+      <span class="lang-zh">复制，粘贴，运行。</span>
+    </h2>
+    <p class="text-sm leading-6 text-[#5e5d59]">
+      <span class="lang-en">Command updates as you select.</span>
+      <span class="lang-zh">命令行会实时更新。</span>
+    </p>
+  </div>
+
+  <div class="mt-3 grid gap-3 sm:grid-cols-2">
+    <div class="disclosure" data-disclosure="platform">
+      <button
+        type="button"
+        class="disclosure__trigger"
+        data-disclosure-trigger
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-controls="platform-panel"
+      >
+        <span class="disclosure__copy">
+          <span class="disclosure__label">
+            <span class="lang-en">Platform</span>
+            <span class="lang-zh">平台</span>
+          </span>
+          <span class="disclosure__value" data-disclosure-value>Linux / macOS</span>
+        </span>
+        <svg viewBox="0 0 16 16" fill="none" class="chevron-icon" aria-hidden="true">
+          <path d="M3.5 6 8 10.5 12.5 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+        </svg>
+      </button>
+
+      <ul id="platform-panel" class="disclosure__panel" data-disclosure-panel role="listbox" hidden>
+        <li class="disclosure__option" data-disclosure-option data-value="linux" data-label-en="Linux / macOS" data-label-zh="Linux / macOS" role="option" tabindex="0">
+          <strong>Linux / macOS</strong>
+          <span class="lang-en">bash, zsh; curl one-liner</span>
+          <span class="lang-zh">bash / zsh；curl 单行安装</span>
+        </li>
+        <li class="disclosure__option" data-disclosure-option data-value="windows" data-label-en="Windows" data-label-zh="Windows" role="option" tabindex="-1">
+          <strong>Windows</strong>
+          <span class="lang-en">PowerShell; Invoke-WebRequest block</span>
+          <span class="lang-zh">PowerShell；Invoke-WebRequest 代码块</span>
+        </li>
+      </ul>
+
+      <select id="platform-select" hidden aria-hidden="true">
+        <option value="linux">Linux / macOS</option>
+        <option value="windows">Windows</option>
+      </select>
+    </div>
+
+    <div class="disclosure" data-disclosure="tool">
+      <button
+        type="button"
+        class="disclosure__trigger"
+        data-disclosure-trigger
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-controls="tool-panel"
+      >
+        <span class="disclosure__copy">
+          <span class="disclosure__label">
+            <span class="lang-en">Tool</span>
+            <span class="lang-zh">工具</span>
+          </span>
+          <span class="disclosure__value" data-disclosure-value>Claude Code</span>
+        </span>
+        <svg viewBox="0 0 16 16" fill="none" class="chevron-icon" aria-hidden="true">
+          <path d="M3.5 6 8 10.5 12.5 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+        </svg>
+      </button>
+
+      <ul id="tool-panel" class="disclosure__panel" data-disclosure-panel role="listbox" hidden>
+        <li class="disclosure__option" data-disclosure-option data-value="claude" data-label-en="Claude Code" data-label-zh="Claude Code" role="option" tabindex="0">
+          <strong>Claude Code</strong>
+          <span class="lang-en">Reads <code>.claude/skills</code> by default</span>
+          <span class="lang-zh">默认读取 <code>.claude/skills</code></span>
+        </li>
+        <li class="disclosure__option" data-disclosure-option data-value="opencode" data-label-en="OpenCode" data-label-zh="OpenCode" role="option" tabindex="-1">
+          <strong>OpenCode</strong>
+          <span class="lang-en">Reads <code>.opencode/skills</code> by default</span>
+          <span class="lang-zh">默认读取 <code>.opencode/skills</code></span>
+        </li>
+        <li class="disclosure__option" data-disclosure-option data-value="codex" data-label-en="Codex" data-label-zh="Codex" role="option" tabindex="-1">
+          <strong>Codex</strong>
+          <span class="lang-en">Reads <code>.codex/skills</code> by default</span>
+          <span class="lang-zh">默认读取 <code>.codex/skills</code></span>
+        </li>
+      </ul>
+
+      <select id="tool-select" hidden aria-hidden="true">
+        <option value="claude">Claude Code</option>
+        <option value="opencode">OpenCode</option>
+        <option value="codex">Codex</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mt-3 rounded-[20px] bg-white p-4 shadow-[0_0_0_1px_#f0eee6]">
+    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[#5e5d59]">
+      <span>
+        <span class="lang-en">Selected</span>
+        <span class="lang-zh">已选</span>
+        :
+        <strong id="selected-count" class="text-[#141413]">0</strong>
+      </span>
+      <span>
+        <span class="lang-en">Skills</span>
+        <span class="lang-zh">skill</span>
+        :
+        <strong id="selected-total" class="text-[#c96442]">0</strong>
+      </span>
+    </div>
+    <div id="selected-list" class="selected-items selected-items--bounded mt-2 text-sm text-[#87867f]">No repositories selected.</div>
+  </div>
+
+  <div class="mt-3 space-y-2">
+    <div>
+      <p class="font-slab text-sm font-medium text-[#141413]">
+        <span class="lang-en">Install</span>
+        <span class="lang-zh">安装</span>
+      </p>
+      <p id="install-command-copy" class="mt-1 text-sm leading-6 text-[#87867f]">Pick a tool, platform, and skills to generate your install command.</p>
+    </div>
+    <CodeBlock
+      id="builder-step2-code"
+      code="curl -sSL https://raw.githubusercontent.com/HughYau/AcademicForge/refs/heads/site-first/scripts/forge-install.sh | bash -s -- --tool claude --skills <pick-repositories>"
+      lang="bash"
+      preClass="codeblock-pre--bounded"
+    />
+  </div>
+
+  <details class="advanced mt-3 rounded-[20px] border border-[#e8e6dc] bg-white">
+    <summary class="details-summary px-4 py-3.5">
+      <span class="font-slab text-sm font-medium text-[#141413]">
+        <span class="lang-en">Advanced</span>
+        <span class="lang-zh">高级</span>
+      </span>
+      <svg viewBox="0 0 16 16" fill="none" class="chevron-icon" aria-hidden="true">
+        <path d="M3.5 6 8 10.5 12.5 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+      </svg>
+    </summary>
+
+    <div class="details-body">
+      <div class="details-body__inner px-4 pb-4">
+        <div class="grid gap-3 border-t border-[#f0eee6] pt-4 sm:grid-cols-2">
+          <div class="space-y-2">
+            <p class="font-slab text-sm font-medium text-[#141413]">
+              <span class="lang-en">Project root</span>
+              <span class="lang-zh">项目根目录</span>
+            </p>
+            <CodeBlock id="builder-step1-code" code="cd /path/to/your-project" lang="bash" />
+          </div>
+
+          <div class="space-y-2">
+            <p class="font-slab text-sm font-medium text-[#141413]">
+              <span class="lang-en">Verify</span>
+              <span class="lang-zh">验证</span>
+            </p>
+            <CodeBlock id="builder-step3-code" code="ls .claude/skills/" lang="bash" />
+          </div>
+        </div>
+
+        <div class="mt-3 rounded-[20px] border border-[#e8e6dc] bg-[#f5f4ed] p-4 text-sm leading-7 text-[#4d4c48]">
+          <p id="install-path-note">Selected repositories will be installed into `.claude/skills`.</p>
+          <p id="install-tool-note">Claude Code will detect and load them automatically.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<button type="button" id="mobile-command-jump" class="mobile-command-jump" hidden>
+  <span id="mobile-command-jump-label">0 selected · View command</span>
+  <svg viewBox="0 0 16 16" fill="none" class="h-4 w-4" aria-hidden="true">
+    <path d="M8 3v10m0 0 4-4m-4 4L4 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+</button>
+
+<script>
+  import {
+    SCRIPT_BASE,
+    buildInstallCommand,
+    buildVerifyCommand,
+    getToolPath,
+  } from '../lib/install-command.mjs';
+  import { pulseEmber } from '../lib/forge-effects.mjs';
+
+  const AGENTS_URL = 'https://hughyau.github.io/AcademicForge/agents.md';
+  const STORAGE_KEY = 'academicforge:selection';
+
+  const installCommandCopy = document.getElementById('install-command-copy');
+  const selectedCount = document.getElementById('selected-count');
+  const selectedTotal = document.getElementById('selected-total');
+  const selectedList = document.getElementById('selected-list');
+  const platformSelect = document.getElementById('platform-select') as HTMLSelectElement | null;
+  const toolSelect = document.getElementById('tool-select') as HTMLSelectElement | null;
+  const pathNote = document.getElementById('install-path-note');
+  const toolNote = document.getElementById('install-tool-note');
+  const aiPromptCopy = document.getElementById('ai-prompt-copy') as HTMLButtonElement | null;
+  const aiPromptCopyLabel = document.getElementById('ai-prompt-copy-label');
+  const disclosureRoots = Array.from(document.querySelectorAll<HTMLElement>('[data-disclosure]'));
+
+  const toolLabels: Record<string, string> = {
+    claude: 'Claude Code',
+    opencode: 'OpenCode',
+    codex: 'Codex',
+  };
+
+  const translations = {
+    en: {
+      empty: 'No repositories selected.',
+      commandHint: 'Pick a tool, platform, and skills to generate your install command.',
+      commandEmptyLinux: `curl -sSL ${SCRIPT_BASE}/forge-install.sh | bash -s -- --tool claude --skills <pick-repositories>`,
+      commandEmptyWindows: [
+        `$script = Join-Path $PWD 'forge-install.ps1'`,
+        `Invoke-WebRequest -Uri '${SCRIPT_BASE}/forge-install.ps1' -OutFile $script`,
+        `& $script -Tool claude -Skills '<pick-repositories>'`,
+        `Remove-Item $script`,
+      ].join('\n'),
+      pathNote: (skillPath: string) => `Selected repositories will be installed into \`${skillPath}\`.`,
+      toolNote: (toolLabel: string) => `${toolLabel} will detect and load them automatically.`,
+    },
+    zh: {
+      empty: '尚未选择。',
+      commandHint: '选择工具、平台和技能后，这里会生成可直接运行的安装命令。',
+      commandEmptyLinux: `curl -sSL ${SCRIPT_BASE}/forge-install.sh | bash -s -- --tool claude --skills <选择仓库>`,
+      commandEmptyWindows: [
+        `$script = Join-Path $PWD 'forge-install.ps1'`,
+        `Invoke-WebRequest -Uri '${SCRIPT_BASE}/forge-install.ps1' -OutFile $script`,
+        `& $script -Tool claude -Skills '<选择仓库>'`,
+        `Remove-Item $script`,
+      ].join('\n'),
+      pathNote: (skillPath: string) => `所选仓库将安装至 \`${skillPath}\`。`,
+      toolNote: (toolLabel: string) => `${toolLabel} 将自动识别并加载。`,
+    },
+  };
+
+  const getLocale = () => document.documentElement.dataset.lang === 'zh' ? 'zh' : 'en';
+  const formatNumber = (value: number) => new Intl.NumberFormat('en-US').format(value);
+
+  const getCheckboxes = () => Array.from(document.querySelectorAll<HTMLInputElement>('.skill-checkbox'));
+  const getSelectedCheckboxes = () => getCheckboxes().filter((checkbox) => checkbox.checked);
+
+  const mobileJump = document.getElementById('mobile-command-jump') as HTMLButtonElement | null;
+  const mobileJumpLabel = document.getElementById('mobile-command-jump-label');
+  const builderSection = document.getElementById('install-builder');
+  let builderInView = false;
+
+  const syncMobileJump = () => {
+    if (!mobileJump) {
+      return;
+    }
+
+    const count = getSelectedCheckboxes().length;
+    mobileJump.hidden = count === 0 || builderInView;
+
+    if (mobileJumpLabel) {
+      mobileJumpLabel.textContent = getLocale() === 'zh'
+        ? `已选 ${count} 库 · 查看命令`
+        : `${count} selected · View command`;
+    }
+  };
+
+  if (mobileJump && builderSection && 'IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      builderInView = entries.some((entry) => entry.isIntersecting);
+      syncMobileJump();
+    }, { threshold: 0.15 }).observe(builderSection);
+  }
+
+  mobileJump?.addEventListener('click', () => {
+    builderSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  const setCodeBlock = (id: string, code: string, lang: string) => {
+    const codeElement = document.getElementById(id);
+    const langElement = document.querySelector<HTMLElement>(`[data-code-lang="${id}"]`);
+
+    if (codeElement) {
+      codeElement.textContent = code;
+    }
+
+    if (langElement) {
+      langElement.textContent = lang;
+    }
+  };
+
+  const getDisclosureParts = (root: HTMLElement) => {
+    return {
+      select: root.querySelector<HTMLSelectElement>('select'),
+      trigger: root.querySelector<HTMLButtonElement>('[data-disclosure-trigger]'),
+      panel: root.querySelector<HTMLElement>('[data-disclosure-panel]'),
+      value: root.querySelector<HTMLElement>('[data-disclosure-value]'),
+      options: Array.from(root.querySelectorAll<HTMLElement>('[data-disclosure-option]')),
+    };
+  };
+
+  const syncDisclosure = (root: HTMLElement) => {
+    const { select, value, options } = getDisclosureParts(root);
+    const locale = getLocale();
+    const selectedValue = select?.value ?? '';
+    const selectedOption = options.find((option) => option.dataset.value === selectedValue) ?? options[0];
+
+    options.forEach((option) => {
+      const isSelected = option === selectedOption;
+      option.classList.toggle('is-selected', isSelected);
+      option.setAttribute('aria-selected', String(isSelected));
+      option.tabIndex = isSelected ? 0 : -1;
+    });
+
+    if (value && selectedOption) {
+      value.textContent = locale === 'zh'
+        ? selectedOption.dataset.labelZh ?? selectedOption.dataset.value ?? ''
+        : selectedOption.dataset.labelEn ?? selectedOption.dataset.value ?? '';
+    }
+  };
+
+  const syncAllDisclosures = () => {
+    disclosureRoots.forEach(syncDisclosure);
+  };
+
+  const closeDisclosure = (root: HTMLElement, restoreFocus = false) => {
+    const { trigger, panel } = getDisclosureParts(root);
+    root.classList.remove('is-open');
+    trigger?.setAttribute('aria-expanded', 'false');
+
+    if (panel) {
+      panel.hidden = true;
+    }
+
+    if (restoreFocus) {
+      trigger?.focus();
+    }
+  };
+
+  const closeAllDisclosures = (except?: HTMLElement) => {
+    disclosureRoots.forEach((root) => {
+      if (root !== except) {
+        closeDisclosure(root);
+      }
+    });
+  };
+
+  const focusDisclosureOption = (root: HTMLElement, index: number) => {
+    const { options } = getDisclosureParts(root);
+    if (options.length === 0) {
+      return;
+    }
+
+    const nextIndex = (index + options.length) % options.length;
+    options.forEach((option) => {
+      option.tabIndex = -1;
+    });
+    options[nextIndex].tabIndex = 0;
+    options[nextIndex].focus();
+  };
+
+  const openDisclosure = (root: HTMLElement, focusTarget: 'selected' | 'first' | 'last' = 'selected') => {
+    const { trigger, panel, options } = getDisclosureParts(root);
+    if (!trigger || !panel || options.length === 0) {
+      return;
+    }
+
+    closeAllDisclosures(root);
+    root.classList.add('is-open');
+    trigger.setAttribute('aria-expanded', 'true');
+    panel.hidden = false;
+
+    const selectedIndex = options.findIndex((option) => option.classList.contains('is-selected'));
+    if (focusTarget === 'first') {
+      focusDisclosureOption(root, 0);
+      return;
+    }
+    if (focusTarget === 'last') {
+      focusDisclosureOption(root, options.length - 1);
+      return;
+    }
+    focusDisclosureOption(root, selectedIndex >= 0 ? selectedIndex : 0);
+  };
+
+  const selectDisclosureOption = (root: HTMLElement, value: string) => {
+    const { select } = getDisclosureParts(root);
+    if (!(select instanceof HTMLSelectElement)) {
+      return;
+    }
+
+    if (select.value !== value) {
+      select.value = value;
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+    } else {
+      syncDisclosure(root);
+    }
+
+    closeDisclosure(root, true);
+  };
+
+  const renderSelectedList = (selected: HTMLInputElement[]) => {
+    if (!selectedList) {
+      return;
+    }
+
+    selectedList.replaceChildren();
+
+    if (selected.length === 0) {
+      selectedList.textContent = translations[getLocale()].empty;
+      return;
+    }
+
+    selected.forEach((checkbox) => {
+      const skillId = checkbox.dataset.skillId ?? '';
+      const label = checkbox.dataset.skillName ?? skillId;
+
+      if (!label) {
+        return;
+      }
+
+      const item = document.createElement('span');
+      item.className = 'selected-item';
+
+      const itemLabel = document.createElement('span');
+      itemLabel.textContent = label;
+
+      const removeButton = document.createElement('button');
+      removeButton.type = 'button';
+      removeButton.className = 'selected-item__remove';
+      removeButton.dataset.removeSkillId = skillId;
+      removeButton.setAttribute('aria-label', getLocale() === 'zh' ? `移除 ${label}` : `Remove ${label}`);
+      removeButton.textContent = '✕';
+
+      item.append(itemLabel, removeButton);
+      selectedList.append(item);
+    });
+  };
+
+  const platformLabels: Record<string, string> = {
+    linux: 'Linux / macOS',
+    windows: 'Windows',
+  };
+
+  const buildAgentPrompt = (selectedIds: string[]) => {
+    const tool = toolSelect?.value ?? 'claude';
+    const platform = platformSelect?.value ?? 'linux';
+    const toolLabel = toolLabels[tool] ?? tool;
+    const platformLabel = platformLabels[platform] ?? platform;
+
+    if (getLocale() === 'zh') {
+      const selectedNote = selectedIds.length > 0
+        ? `我已经选了 ${selectedIds.join(', ')}，请在此基础上查漏补缺。`
+        : '';
+      return `请获取并阅读 ${AGENTS_URL}，按其中的说明了解我的研究需求，然后从 AcademicForge 目录中为我挑选合适的学术 skills 并生成安装命令。我的工具：${toolLabel}；平台：${platformLabel}。${selectedNote}`;
+    }
+
+    const selectedNote = selectedIds.length > 0
+      ? ` I already picked ${selectedIds.join(', ')}; suggest what complements them.`
+      : '';
+    return `Fetch and read ${AGENTS_URL}, then follow its instructions: ask about my research needs, pick matching academic skills from the AcademicForge catalog, and build the install command for me. My tool: ${toolLabel}; platform: ${platformLabel}.${selectedNote}`;
+  };
+
+  const setAiButtonText = (text: string) => {
+    (aiPromptCopyLabel ?? aiPromptCopy)!.textContent = text;
+  };
+
+  const updateAiButtonLabel = () => {
+    if (!aiPromptCopy || aiPromptCopy.dataset.copied === 'true') {
+      return;
+    }
+
+    setAiButtonText(getLocale() === 'zh'
+      ? aiPromptCopy.dataset.labelZh ?? '让 AI 帮我选'
+      : aiPromptCopy.dataset.labelEn ?? 'Ask your AI');
+  };
+
+  aiPromptCopy?.addEventListener('click', async () => {
+    if (!navigator.clipboard) {
+      return;
+    }
+
+    const selectedIds = getSelectedCheckboxes()
+      .map((checkbox) => checkbox.dataset.skillId ?? '')
+      .filter(Boolean);
+
+    await navigator.clipboard.writeText(buildAgentPrompt(selectedIds));
+    aiPromptCopy.dataset.copied = 'true';
+    setAiButtonText(getLocale() === 'zh'
+      ? aiPromptCopy.dataset.copiedZh ?? '✓ 已锻好'
+      : aiPromptCopy.dataset.copiedEn ?? '✓ Forged');
+    aiPromptCopy.classList.add('is-copied');
+
+    window.setTimeout(() => {
+      aiPromptCopy.dataset.copied = 'false';
+      aiPromptCopy.classList.remove('is-copied');
+      updateAiButtonLabel();
+    }, 2000);
+  });
+
+  const persistSelection = (skillIds: string[]) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        skills: skillIds,
+        tool: toolSelect?.value ?? 'claude',
+        platform: platformSelect?.value ?? 'linux',
+      }));
+    } catch {
+      /* storage unavailable */
+    }
+
+    const url = new URL(window.location.href);
+    if (skillIds.length > 0) {
+      url.searchParams.set('skills', skillIds.join(','));
+    } else {
+      url.searchParams.delete('skills');
+    }
+    window.history.replaceState(null, '', url);
+  };
+
+  const restoreSelection = () => {
+    let stored: { skills?: string[]; tool?: string; platform?: string } | null = null;
+    try {
+      stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? 'null');
+    } catch {
+      stored = null;
+    }
+
+    const urlSkills = (new URLSearchParams(window.location.search).get('skills') ?? '')
+      .split(',')
+      .map((id) => id.trim())
+      .filter(Boolean);
+    const skillIds = urlSkills.length > 0 ? urlSkills : stored?.skills ?? [];
+
+    if (toolSelect && stored?.tool && Array.from(toolSelect.options).some((option) => option.value === stored?.tool)) {
+      toolSelect.value = stored.tool;
+    }
+
+    if (platformSelect && stored?.platform && Array.from(platformSelect.options).some((option) => option.value === stored?.platform)) {
+      platformSelect.value = stored.platform;
+    }
+
+    if (skillIds.length === 0) {
+      return;
+    }
+
+    const wanted = new Set(skillIds);
+    getCheckboxes().forEach((checkbox) => {
+      if (wanted.has(checkbox.dataset.skillId ?? '')) {
+        checkbox.checked = true;
+        checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+  };
+
+  let lastInstallCommand = '';
+
+  const renderCommands = (selected: HTMLInputElement[]) => {
+    const locale = getLocale();
+    const tool = toolSelect?.value ?? 'claude';
+    const platform = platformSelect?.value ?? 'linux';
+    const isWindows = platform === 'windows';
+    const skillPath = getToolPath({ platform, tool });
+    const toolLabel = toolLabels[tool] ?? tool;
+    const skillIds = selected.map((checkbox) => checkbox.dataset.skillId ?? '').filter(Boolean);
+    const codeLang = isWindows ? 'powershell' : 'bash';
+    const cdCommand = isWindows ? 'cd C:\\path\\to\\your-project' : 'cd /path/to/your-project';
+    const installCommand = selected.length === 0
+      ? (isWindows ? translations[locale].commandEmptyWindows : translations[locale].commandEmptyLinux)
+      : buildInstallCommand({
+          platform,
+          tool,
+          skillIds,
+        });
+    const verifyCommand = buildVerifyCommand({ platform, tool });
+
+    setCodeBlock('builder-step1-code', cdCommand, codeLang);
+    setCodeBlock('builder-step2-code', installCommand, codeLang);
+    setCodeBlock('builder-step3-code', verifyCommand, codeLang);
+
+    if (installCommand !== lastInstallCommand) {
+      if (lastInstallCommand !== '') {
+        pulseEmber(document.getElementById('builder-step2-code')?.closest('.codeblock-root') ?? null);
+      }
+      lastInstallCommand = installCommand;
+    }
+
+    if (installCommandCopy) {
+      installCommandCopy.textContent = translations[locale].commandHint;
+      // The hint only earns its space while there is nothing selected yet.
+      installCommandCopy.hidden = selected.length > 0;
+    }
+
+    if (pathNote) {
+      pathNote.textContent = translations[locale].pathNote(skillPath);
+    }
+
+    if (toolNote) {
+      toolNote.textContent = translations[locale].toolNote(toolLabel);
+    }
+  };
+
+  const updateSelection = () => {
+    const selected = getSelectedCheckboxes();
+    const totalSkillCount = selected.reduce((sum, checkbox) => {
+      return sum + Number(checkbox.dataset.skillCount ?? 0);
+    }, 0);
+
+    persistSelection(selected.map((checkbox) => checkbox.dataset.skillId ?? '').filter(Boolean));
+
+    if (selectedCount) {
+      selectedCount.textContent = formatNumber(selected.length);
+    }
+
+    if (selectedTotal) {
+      selectedTotal.textContent = formatNumber(totalSkillCount);
+    }
+
+    renderSelectedList(selected);
+    renderCommands(selected);
+    syncMobileJump();
+  };
+
+  const applyLocale = () => {
+    syncAllDisclosures();
+    updateSelection();
+    updateAiButtonLabel();
+  };
+
+  disclosureRoots.forEach((root) => {
+    const { trigger, panel } = getDisclosureParts(root);
+
+    trigger?.addEventListener('click', () => {
+      if (root.classList.contains('is-open')) {
+        closeDisclosure(root, true);
+      } else {
+        openDisclosure(root);
+      }
+    });
+
+    trigger?.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openDisclosure(root, event.key === 'ArrowDown' ? 'first' : 'selected');
+      }
+
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        openDisclosure(root, 'last');
+      }
+
+      if (event.key === 'Escape') {
+        closeDisclosure(root);
+      }
+    });
+
+    panel?.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const option = target.closest('[data-disclosure-option]');
+      if (!(option instanceof HTMLElement)) {
+        return;
+      }
+
+      selectDisclosureOption(root, option.dataset.value ?? '');
+    });
+
+    panel?.addEventListener('keydown', (event) => {
+      const { options } = getDisclosureParts(root);
+      const activeIndex = options.findIndex((option) => option === document.activeElement);
+
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeDisclosure(root, true);
+      }
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        focusDisclosureOption(root, activeIndex + 1);
+      }
+
+      if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        focusDisclosureOption(root, activeIndex - 1);
+      }
+
+      if (event.key === 'Home') {
+        event.preventDefault();
+        focusDisclosureOption(root, 0);
+      }
+
+      if (event.key === 'End') {
+        event.preventDefault();
+        focusDisclosureOption(root, options.length - 1);
+      }
+
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const activeOption = options[activeIndex >= 0 ? activeIndex : 0];
+        if (activeOption) {
+          selectDisclosureOption(root, activeOption.dataset.value ?? '');
+        }
+      }
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Node)) {
+      return;
+    }
+
+    disclosureRoots.forEach((root) => {
+      if (!root.contains(target)) {
+        closeDisclosure(root);
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeAllDisclosures();
+    }
+  });
+
+  document.addEventListener('change', (event) => {
+    const target = event.target;
+    if (target instanceof HTMLInputElement && target.classList.contains('skill-checkbox')) {
+      updateSelection();
+    }
+  });
+
+  selectedList?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const button = target.closest<HTMLButtonElement>('[data-remove-skill-id]');
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const skillId = button.dataset.removeSkillId ?? '';
+    const checkbox = getCheckboxes().find((item) => item.dataset.skillId === skillId);
+    if (!(checkbox instanceof HTMLInputElement)) {
+      return;
+    }
+
+    checkbox.checked = false;
+    checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+  });
+
+  const handleSelectChange = () => {
+    syncAllDisclosures();
+    updateSelection();
+  };
+
+  platformSelect?.addEventListener('change', handleSelectChange);
+  toolSelect?.addEventListener('change', handleSelectChange);
+  window.addEventListener('academicforge:locale-change', applyLocale);
+
+  restoreSelection();
+  syncAllDisclosures();
+  updateSelection();
+  applyLocale();
+</script>

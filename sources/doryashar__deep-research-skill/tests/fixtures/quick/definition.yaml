@@ -1,0 +1,8 @@
+query: "Define idempotent in REST APIs"
+expected_mode: quick
+expected_min_sources: 2
+expected_sections:
+  - "Definition"
+  - "Sources"
+must_cite_domain_pattern: "(mdn|rfc-editor|restfulapi|w3\\.org)"
+max_report_words: 400

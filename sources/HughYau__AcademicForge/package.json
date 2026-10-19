@@ -1,0 +1,18 @@
+{
+  "name": "academicforge",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix site run dev --",
+    "build": "node scripts/build-slim-index.mjs && npm --prefix site run build --",
+    "build:agent-index": "node scripts/build-slim-index.mjs",
+    "refresh:stars": "node scripts/refresh-stars.mjs",
+    "preview": "npm --prefix site run preview --",
+    "site:install": "npm --prefix site install",
+    "validate:registry": "node scripts/validate-registry.mjs",
+    "test:site": "node --test site/src/lib/*.test.mjs",
+    "test:scripts": "node --test scripts/tests/build-skill-index.test.mjs scripts/tests/validate-registry.test.mjs",
+    "test": "npm run test:site && npm run test:scripts",
+    "ci:validate": "npm run validate:registry && npm run test && npm run build"
+  }
+}

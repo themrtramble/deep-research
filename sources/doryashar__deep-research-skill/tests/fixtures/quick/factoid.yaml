@@ -1,0 +1,9 @@
+# Canonical factoid query — should classify as quick.
+query: "What is the current stable version of Bun?"
+expected_mode: quick
+expected_min_sources: 3
+expected_sections:
+  - "Answer"
+  - "Sources"
+must_cite_domain_pattern: "(bun\\.sh|github\\.com/oven-sh/bun)"
+max_report_words: 400

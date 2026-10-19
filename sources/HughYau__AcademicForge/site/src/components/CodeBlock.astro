@@ -1,0 +1,99 @@
+---
+interface Props {
+  code: string;
+  lang?: string;
+  id?: string;
+  rootClass?: string;
+  preClass?: string;
+}
+
+const {
+  code,
+  lang = 'bash',
+  id = `code-block-${Math.random().toString(36).slice(2, 9)}`,
+  rootClass = '',
+  preClass = '',
+} = Astro.props;
+---
+
+<div class:list={['codeblock-root overflow-hidden rounded-[20px] border border-[#30302e] bg-[#141413]', rootClass]}>
+  <div class="flex items-center justify-between border-b border-[#30302e] px-4 py-3">
+    <span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#b0aea5]" data-code-lang={id}>
+      {lang}
+    </span>
+    <button
+      type="button"
+      data-copy-target={id}
+      data-label-en="Copy"
+      data-label-zh="复制"
+      data-copied-en="✓ Forged"
+      data-copied-zh="✓ 已锻好"
+      class="copy-btn rounded-full border border-[#c96442] bg-[#c96442] px-3 py-1 text-xs font-medium text-[#faf9f5] transition hover:border-[#b65538] hover:bg-[#b65538]"
+    >
+      Copy
+    </button>
+  </div>
+  <pre class:list={['overflow-hidden whitespace-pre-wrap break-words p-4 text-sm leading-7 text-[#faf9f5]', preClass]}><code id={id}>{code}</code></pre>
+</div>
+
+<script>
+  const copyWindow = window as { __academicForgeCopyBound?: boolean };
+  const getLocale = () => document.documentElement.dataset.lang === 'zh' ? 'zh' : 'en';
+
+  const updateButtonLabel = (button: HTMLButtonElement) => {
+    if (button.dataset.copied === 'true') {
+      return;
+    }
+
+    button.textContent = getLocale() === 'zh' ? button.dataset.labelZh ?? '复制' : button.dataset.labelEn ?? 'Copy';
+  };
+
+  const updateAllCopyLabels = () => {
+    document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach(updateButtonLabel);
+  };
+
+  if (!copyWindow.__academicForgeCopyBound) {
+    copyWindow.__academicForgeCopyBound = true;
+
+    document.addEventListener('click', async (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const button = target.closest('.copy-btn');
+      if (!(button instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      const codeId = button.dataset.copyTarget;
+      if (!codeId) {
+        return;
+      }
+
+      const codeElement = document.getElementById(codeId);
+      if (!codeElement) {
+        return;
+      }
+
+      const text = codeElement.textContent?.trim() ?? '';
+      if (!text || !navigator.clipboard) {
+        return;
+      }
+
+      await navigator.clipboard.writeText(text);
+      button.dataset.copied = 'true';
+      button.textContent = getLocale() === 'zh' ? button.dataset.copiedZh ?? '✓ 已锻好' : button.dataset.copiedEn ?? '✓ Forged';
+      button.classList.add('is-copied');
+
+      window.setTimeout(() => {
+        button.dataset.copied = 'false';
+        button.classList.remove('is-copied');
+        updateButtonLabel(button);
+      }, 2000);
+    });
+  }
+
+  window.addEventListener('academicforge:locale-change', updateAllCopyLabels);
+  updateAllCopyLabels();
+</script>

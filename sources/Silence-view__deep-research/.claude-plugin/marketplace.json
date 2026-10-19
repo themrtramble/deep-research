@@ -1,0 +1,15 @@
+{
+  "name": "deep-research",
+  "owner": {
+    "name": "Andre",
+    "url": "https://github.com/Silence-view"
+  },
+  "plugins": [
+    {
+      "name": "deep-research",
+      "source": "./",
+      "description": "Professional multi-agent deep research across 100+ sources with citation chasing, credibility scoring, and evidence triangulation",
+      "version": "1.0.0"
+    }
+  ]
+}

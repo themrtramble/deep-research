@@ -1,0 +1,10 @@
+query: "How do I set up a CI pipeline with GitHub Actions and Docker for a Python project?"
+expected_mode: standard
+expected_min_sources: 8
+expected_subagents: [2, 3]
+expected_sections:
+  - "Overview"
+  - "Steps"      # numbered
+  - "Pitfalls"
+  - "Sources"
+requires_numbered_steps: true
