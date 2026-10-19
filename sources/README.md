@@ -1,19 +1,18 @@
 # Source Repositories (Audit Trail)
 
-This branch preserves the **29 open-source repositories** that were cloned,
+This folder preserves the **29 open-source repositories** that were cloned,
 audited, and merged to build the `deep-research/` and `deep-analysis/` skills
-on the `main` branch. Each folder is named `author__repo` and is a snapshot
+in this same repo. Each folder is named `author__repo` and is a snapshot
 clone (`--depth 1`, taken 2025-10-19) with the upstream `.git` directory
 removed. They are kept here for reference, provenance, and re-verification.
 
-> **Note:** The `main` branch contains only the two final skill folders, as
-> required by the build spec. Use the branch dropdown to switch between:
-> - `main` — the final deliverable (deep-research/ + deep-analysis/)
-> - `sources` — this audit trail (all 29 cloned source repos)
+> **Repo layout (single `main` branch):** the final skills live in
+> `deep-research/` and `deep-analysis/`; this `sources/` folder is the
+> raw audit trail of everything that was studied and merged.
 
 ## Provenance & Licensing
 
-Full details: see `docs/capability-matrix.md` and `ATTRIBUTION.md` on `main`.
+Full details: see `docs/capability-matrix.md` and `ATTRIBUTION.md` at the repo root.
 
 | Folder | Upstream | License note |
 |---|---|---|

@@ -9,7 +9,9 @@ Both skills were engineered by auditing **29 open-source research/analysis
 repos** (8 original seeds + 9 additional seeds + 12 discovered candidates),
 extracting the strongest verified capabilities, and rebuilding them as one
 coherent, tested system. See `docs/` for the full discovery inventory,
-source-to-capability matrix, and architecture.
+source-to-capability matrix, and architecture. The raw snapshots of all 29
+audited repos are preserved in `sources/` for provenance (see
+`sources/README.md` for the per-repo license notes).
 
 ## Why two skills
 
