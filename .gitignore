@@ -1,0 +1,27 @@
+# secrets & local configuration
+.env
+.env.*
+*.key
+*.pem
+credentials*
+config.local.*
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# research run artifacts (generated at runtime; keep templates, not runs)
+research/
+analysis/
+research/*/package.json
+**/run-*/
+!**/templates/**
+
+# temporary
+.DS_Store
+*.tmp
+*.log
